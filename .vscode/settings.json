@@ -1,0 +1,9 @@
+{
+    "flutter-intl.localizationFileName": "S",
+    "flutter-intl.main-locale": "en",
+    "flutter-intl.arb-dir": "lib/l10n",
+    "flutter-intl.output-dir": "lib/generated",
+    "editor.codeActionsOnSave": {
+        "source.organizeImports": "explicit"
+    }
+}

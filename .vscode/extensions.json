@@ -1,0 +1,8 @@
+{
+    "recommendations": [
+        "localizely.flutter-intl",
+        "google.arb-editor",
+        "dart-code.dart-code",
+        "dart-code.flutter"
+    ]
+}
