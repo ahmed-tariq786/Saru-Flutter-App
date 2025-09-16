@@ -73,6 +73,72 @@ class CollectionController extends GetxController {
       return CollectionResult();
     }
   }
+
+  Future<CollectionResult> fetchProductsByVendor(
+    String vendor, {
+    List<Map<String, dynamic>> selectedFilters = const [],
+    String? after,
+    Map<String, dynamic>? selectedSortOption,
+  }) async {
+    try {
+      print('Fetching products for vendor: $vendor');
+      final result = await client.query(
+        QueryOptions(
+          document: gql(
+            getProductsByVendor(
+              Get.find<LanguageController>().currentLocale.value.languageCode,
+            ),
+          ),
+          fetchPolicy: FetchPolicy.networkOnly, // Bypass cache
+          variables: {
+            "vendor": 'vendor:"$vendor"',
+            "first": 52,
+            if (after != null && after.isNotEmpty) "after": after,
+            // Only pass sort parameters when selectedSortOption is provided
+            if (selectedSortOption != null) ...{
+              "sortKey": selectedSortOption['sortKey'],
+              "reverse": selectedSortOption['reverse'],
+            },
+          },
+        ),
+      );
+
+      if (result.hasException) {
+        print('GraphQL Exception: ${result.exception.toString()}');
+        throw Exception(result.exception.toString());
+      }
+
+      final productsData = result.data?['products'];
+      final edges = productsData?['edges'] as List? ?? [];
+      final filtersData = productsData?['filters'] as List? ?? [];
+
+      final pageInfo = productsData?['pageInfo'];
+
+      final products = edges.map((edge) {
+        final node = edge['node'];
+        return Product.fromJson(node);
+      }).toList();
+
+      final filters = filtersData.map((f) {
+        return ProductFilter.fromJson(f);
+      }).toList();
+
+      // Provide default pageInfo if null
+      final safePageInfo =
+          pageInfo ??
+          {
+            'hasNextPage': false,
+            'hasPreviousPage': false,
+            'startCursor': null,
+            'endCursor': null,
+          };
+
+      return CollectionResult(products: products, filters: filters, pageInfo: safePageInfo);
+    } catch (e) {
+      print("Error fetching products: $e");
+      return CollectionResult();
+    }
+  }
 }
 
 class CollectionResult {

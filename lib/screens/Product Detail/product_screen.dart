@@ -11,6 +11,7 @@ import 'package:saru/generated/l10n.dart';
 import 'package:saru/models/product.dart';
 import 'package:saru/models/variant.dart';
 import 'package:saru/screens/Product%20Detail/image_viewer.dart';
+import 'package:saru/screens/Vendor/vendor_screen.dart';
 import 'package:saru/services/cart_service.dart';
 import 'package:saru/services/favorites_service.dart';
 import 'package:saru/services/product_service.dart';
@@ -371,12 +372,26 @@ class _ProductScreenState extends State<ProductScreen> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              myText(
-                                widget.product.vendor,
-                                14,
-                                FontWeight.w800,
-                                AppColors.black,
-                                TextAlign.left,
+                              GestureDetector(
+                                onTap: () {
+                                  // Navigate to vendor screen
+                                  PersistentNavBarNavigator.pushNewScreen(
+                                    context,
+                                    screen: VendorScreen(
+                                      vendor: widget.product.vendor,
+                                      title: widget.product.vendor,
+                                    ),
+                                    withNavBar: true, // <--- keeps the bottom bar visible
+                                    pageTransitionAnimation: PageTransitionAnimation.cupertino,
+                                  );
+                                },
+                                child: myText(
+                                  widget.product.vendor,
+                                  14,
+                                  FontWeight.w800,
+                                  AppColors.black,
+                                  TextAlign.left,
+                                ),
                               ),
                               Obx(
                                 () => favoritesController.isFavorited(widget.product.id)

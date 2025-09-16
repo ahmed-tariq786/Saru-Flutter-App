@@ -92,3 +92,93 @@ String getProductsByCollectionId(String locale) {
   }
   ''';
 }
+
+String getProductsByVendor(String locale) {
+  return '''
+  query ProductsByVendor(
+    \$vendor: String!,
+    \$first: Int = 50, 
+    \$after: String,
+    \$sortKey: ProductSortKeys,
+    \$reverse: Boolean
+  ) @inContext(language: ${locale.toUpperCase()}) {
+    products(
+      first: \$first, 
+      after: \$after, 
+      query: \$vendor, 
+      sortKey: \$sortKey, 
+      reverse: \$reverse
+    ) {
+      pageInfo {
+        hasNextPage
+        endCursor
+      }
+      filters {
+        id
+        label
+        type
+        values {
+          id
+          label
+          count
+          input
+        }
+      }
+      edges {
+        node {
+          id
+          title
+          descriptionHtml
+          vendor
+          tags
+          specifications: metafield(namespace: "custom", key: "specifications2") {
+            value
+          }
+          images(first: 20) {
+            edges {
+              node {
+                url
+                altText
+              }
+            }
+          }
+          collections(first: 10) {
+            edges {
+              node {
+                title
+              }
+            }
+          }
+          variants(first: 100) {
+            edges {
+              node {
+                id
+                title
+                sku
+                image {
+                  url
+                  altText
+                }
+                availableForSale
+                quantityAvailable
+                price {
+                  amount
+                  currencyCode
+                }
+                compareAtPrice {
+                  amount
+                  currencyCode
+                }
+                selectedOptions {
+                  name
+                  value
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  ''';
+}
