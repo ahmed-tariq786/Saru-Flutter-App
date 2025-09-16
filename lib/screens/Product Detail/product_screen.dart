@@ -577,10 +577,15 @@ class _ProductScreenState extends State<ProductScreen> {
 
                                   if (selectedVariant!.quantityAvailable != 0)
                                     Container(
+                                      padding: EdgeInsets.symmetric(horizontal: 0, vertical: 0),
                                       decoration: BoxDecoration(
+                                        color: Colors.white,
                                         border: Border.all(
-                                          color: AppColors.black,
+                                          color: AppColors.grey,
+                                          width: 1.0,
+                                          style: BorderStyle.solid,
                                         ),
+                                        borderRadius: BorderRadius.circular(8),
                                       ),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.min,
@@ -594,7 +599,7 @@ class _ProductScreenState extends State<ProductScreen> {
                                             },
                                             child: Container(
                                               width: 30,
-                                              color: AppColors.white,
+
                                               height: 30,
                                               alignment: Alignment.center,
                                               child: SvgPicture.asset(
@@ -623,7 +628,7 @@ class _ProductScreenState extends State<ProductScreen> {
                                                   : 0.3,
                                               child: Container(
                                                 width: 30,
-                                                color: AppColors.white,
+
                                                 height: 30,
                                                 alignment: Alignment.center,
                                                 child: SvgPicture.asset(
