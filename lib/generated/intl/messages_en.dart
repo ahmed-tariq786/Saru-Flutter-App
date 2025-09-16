@@ -77,6 +77,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "remove": MessageLookupByLibrary.simpleMessage("Remove"),
     "reset": MessageLookupByLibrary.simpleMessage("Reset"),
     "search": MessageLookupByLibrary.simpleMessage("Search"),
+    "searchBrands": MessageLookupByLibrary.simpleMessage("Search Brands"),
     "searchTheProducts": MessageLookupByLibrary.simpleMessage(
       "Search the products",
     ),

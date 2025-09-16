@@ -77,6 +77,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "remove": MessageLookupByLibrary.simpleMessage("يزيل"),
     "reset": MessageLookupByLibrary.simpleMessage("إعادة ضبط"),
     "search": MessageLookupByLibrary.simpleMessage("يبحث"),
+    "searchBrands": MessageLookupByLibrary.simpleMessage(
+      "البحث العلامات التجارية",
+    ),
     "searchTheProducts": MessageLookupByLibrary.simpleMessage(
       "ابحث في المنتجات",
     ),

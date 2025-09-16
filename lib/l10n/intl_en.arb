@@ -55,5 +55,6 @@
   "availability": "Availability",
   "relevance": "Relevance",
   "couponCode": "Coupon code",
-  "remove": "Remove"
+  "remove": "Remove",
+  "searchBrands": "Search Brands"
 }

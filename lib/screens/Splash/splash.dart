@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:saru/screens/Bottom%20Bar/bottom_bar.dart';
+import 'package:saru/services/brands_service.dart';
 import 'package:saru/services/cart_service.dart';
 import 'package:saru/services/collection_service.dart';
 import 'package:saru/services/favorites_service.dart';
@@ -28,6 +29,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
   final cartController = Get.put(CartController());
   final collectionController = Get.put(CollectionController());
   final favoritesController = Get.put(FavoritesController());
+  final brandsController = Get.put(BrandsController());
 
   @override
   void initState() {
@@ -46,26 +48,29 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
     try {
       Future.delayed(const Duration(milliseconds: 0), () async {
         _controller.forward();
-        await productsController.fetchProducts();
-        await menusController.fetchMainMenu();
 
-        await cartController.loadExistingCart();
+        // Run independent calls in parallel
+        await Future.wait([
+          productsController.fetchProducts(),
+          menusController.fetchMainMenu(),
+          favoritesController.loadFavorites(),
+          brandsController.fetchBrandsMenu(),
+          cartController.loadExistingCart(),
+        ]);
 
         final result = await collectionController.fetchProductsByCollectionId(
           "gid://shopify/Collection/471830659326",
         );
 
-        await favoritesController.loadFavorites();
-
         cartController.alsoLikeCategory.value = result.products;
 
-        // await cartController.clearCartData();
-
+        // Fetch cart only if cartId exists (depends on loadExistingCart)
         if (cartController.cartId.value.isNotEmpty) {
           await cartController.fetchCart(cartController.cartId.value);
         }
 
-        await Future.delayed(const Duration(milliseconds: 800));
+        // Optional: keep a small delay before navigation if you want animations
+        await Future.delayed(const Duration(milliseconds: 500));
 
         Get.offAll(
           () => const MainPage(),

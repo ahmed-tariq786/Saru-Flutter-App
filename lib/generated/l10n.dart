@@ -433,6 +433,16 @@ class S {
   String get remove {
     return Intl.message('Remove', name: 'remove', desc: '', args: []);
   }
+
+  /// `Search Brands`
+  String get searchBrands {
+    return Intl.message(
+      'Search Brands',
+      name: 'searchBrands',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

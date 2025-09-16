@@ -120,9 +120,9 @@ class _SearchScreenState extends State<SearchScreen> {
                         controller: searchController,
                         onChanged: _onSearchChanged,
                         style: textstyle(
-                          14,
+                          15,
                           AppColors.black,
-                          FontWeight.w500,
+                          FontWeight.w400,
                         ),
                         keyboardType: TextInputType.text,
                         textInputAction: TextInputAction.search,
@@ -189,7 +189,7 @@ class _SearchScreenState extends State<SearchScreen> {
                           ),
                           hintText: S.of(context).search,
                           hintStyle: textstyle(
-                            14,
+                            15,
                             AppColors.darkGrey.withOpacity(0.5),
                             FontWeight.w500,
                           ),

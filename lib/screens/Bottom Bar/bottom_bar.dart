@@ -4,6 +4,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get_utils/src/extensions/string_extensions.dart';
 import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 import 'package:saru/screens/Account/account.dart';
+import 'package:saru/screens/Brands/brands_screen.dart';
 import 'package:saru/screens/Cart/cart_screen.dart';
 import 'package:saru/screens/Categories/categories.dart';
 import 'package:saru/screens/Home%20Page/home.dart';
@@ -34,7 +35,7 @@ class _MainPageState extends State<MainPage> {
         tabController: _controller,
       ),
       const CategoriesScreen(),
-      const HomeScreen(),
+      const BrandsScreen(),
       CartScreen(
         tabController: _controller,
       ),

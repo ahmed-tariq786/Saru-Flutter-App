@@ -29,7 +29,7 @@ class MenusController extends GetxController {
       final menuData = result.data?['menu'];
       if (menuData != null) {
         final menu = Menus.fromJson(menuData);
-        menus[handle] = menu;
+
         return menu;
       }
       return null;
