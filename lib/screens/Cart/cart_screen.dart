@@ -15,7 +15,7 @@ import 'package:saru/widgets/constants/cache_image.dart';
 import 'package:saru/widgets/constants/colors.dart';
 import 'package:saru/widgets/constants/loader.dart';
 import 'package:saru/widgets/constants/my_text.dart';
-import 'package:saru/widgets/constants/textStyle.dart';
+import 'package:saru/widgets/constants/text_Style.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class CartScreen extends StatefulWidget {

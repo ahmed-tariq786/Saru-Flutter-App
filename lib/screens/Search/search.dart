@@ -8,12 +8,12 @@ import 'package:saru/generated/l10n.dart';
 import 'package:saru/services/product_service.dart';
 import 'package:saru/services/search_service.dart';
 import 'package:saru/services/shared_preference.dart';
-import 'package:saru/widgets/Search/Search_Product_card.dart';
+import 'package:saru/widgets/Search/search_Product_card.dart';
 import 'package:saru/widgets/constants/colors.dart';
 import 'package:saru/widgets/constants/loader.dart';
 import 'package:saru/widgets/constants/my_text.dart';
 import 'package:saru/widgets/constants/rtl_svg.dart';
-import 'package:saru/widgets/constants/textStyle.dart';
+import 'package:saru/widgets/constants/text_Style.dart';
 
 class SearchScreen extends StatefulWidget {
   const SearchScreen({super.key});

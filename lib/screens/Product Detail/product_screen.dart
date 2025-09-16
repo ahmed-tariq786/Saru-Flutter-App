@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -8,6 +10,7 @@ import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 import 'package:saru/generated/l10n.dart';
 import 'package:saru/models/product.dart';
 import 'package:saru/models/variant.dart';
+import 'package:saru/screens/Product%20Detail/image_viewer.dart';
 import 'package:saru/services/cart_service.dart';
 import 'package:saru/services/favorites_service.dart';
 import 'package:saru/services/product_service.dart';
@@ -35,6 +38,7 @@ class _ProductScreenState extends State<ProductScreen> {
   int _currentImageIndex = 0;
   PageController _pageController = PageController();
   ScrollController _scrollController = ScrollController();
+  Timer? _autoScrollTimer;
   final favoritesController = Get.find<FavoritesController>();
   bool _showTitleInAppBar = false;
   final GlobalKey _titleKey = GlobalKey();
@@ -81,10 +85,34 @@ class _ProductScreenState extends State<ProductScreen> {
       await productsController.fetchRecommendedProducts(widget.product.id);
       isRecommendedLoading.value = false;
     });
+
+    // Start auto-scroll timer if there are multiple images
+    if (widget.product.images.length > 1) {
+      _startAutoScroll();
+    }
+  }
+
+  void _startAutoScroll() {
+    _autoScrollTimer = Timer.periodic(Duration(seconds: 5), (timer) {
+      if (_pageController.hasClients && widget.product.images.isNotEmpty) {
+        final nextIndex = (_currentImageIndex + 1) % widget.product.images.length;
+        _pageController.animateToPage(
+          nextIndex,
+          duration: Duration(milliseconds: 300),
+          curve: Curves.easeInOut,
+        );
+      }
+    });
+  }
+
+  void _stopAutoScroll() {
+    _autoScrollTimer?.cancel();
+    _autoScrollTimer = null;
   }
 
   @override
   void dispose() {
+    _stopAutoScroll();
     _pageController.dispose();
     _scrollController.dispose();
     super.dispose();
@@ -230,15 +258,15 @@ class _ProductScreenState extends State<ProductScreen> {
                           height: Get.width * 0.9,
                           child: PageView.builder(
                             controller: _pageController,
-
+                            physics: widget.product.images.length > 1 ? null : NeverScrollableScrollPhysics(),
                             onPageChanged: (index) {
                               setState(() {
-                                _currentImageIndex = index;
+                                _currentImageIndex = index % widget.product.images.length;
                               });
                             },
-                            itemCount: widget.product.images.length,
                             itemBuilder: (context, index) {
-                              final imageUrl = widget.product.images[index];
+                              final imageIndex = index % widget.product.images.length;
+                              final imageUrl = widget.product.images[imageIndex];
                               return Container(
                                 alignment: Alignment.bottomCenter,
                                 child: CacheImage(
@@ -292,24 +320,29 @@ class _ProductScreenState extends State<ProductScreen> {
                       Positioned(
                         bottom: 10,
                         right: 10,
-                        child: Container(
-                          alignment: Alignment.center,
-                          width: 30,
-                          height: 30,
-                          decoration: BoxDecoration(
-                            color: AppColors.white,
-                            borderRadius: BorderRadius.circular(50),
-                            boxShadow: [
-                              BoxShadow(
-                                color: AppColors.black.withOpacity(0.1),
-                                blurRadius: 6,
-                                offset: const Offset(0, 0),
-                              ),
-                            ],
-                          ),
-                          child: SvgPicture.asset(
-                            "assets/icons/enlarge.svg",
-                            width: 12,
+                        child: GestureDetector(
+                          onTap: () {
+                            _openFullScreenImageViewer(_currentImageIndex, widget.product.images);
+                          },
+                          child: Container(
+                            alignment: Alignment.center,
+                            width: 30,
+                            height: 30,
+                            decoration: BoxDecoration(
+                              color: AppColors.white,
+                              borderRadius: BorderRadius.circular(50),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: AppColors.black.withOpacity(0.1),
+                                  blurRadius: 6,
+                                  offset: const Offset(0, 0),
+                                ),
+                              ],
+                            ),
+                            child: SvgPicture.asset(
+                              "assets/icons/enlarge.svg",
+                              width: 12,
+                            ),
                           ),
                         ),
                       ),
@@ -989,5 +1022,20 @@ class _ProductScreenState extends State<ProductScreen> {
     }
 
     return grouped;
+  }
+
+  void _openFullScreenImageViewer(int initialIndex, List<dynamic> images) {
+    final List<String> imageUrls = images.map((image) => image.toString()).toList();
+
+    showDialog(
+      context: context,
+      barrierColor: Colors.black.withOpacity(0.8),
+      builder: (_) {
+        return FullScreenImageViewer(
+          initialIndex: initialIndex,
+          images: imageUrls,
+        );
+      },
+    );
   }
 }

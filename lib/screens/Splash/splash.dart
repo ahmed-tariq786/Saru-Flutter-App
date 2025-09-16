@@ -59,7 +59,6 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
 
         cartController.alsoLikeCategory.value = result.products;
 
-        // //TODO
         // await cartController.clearCartData();
 
         if (cartController.cartId.value.isNotEmpty) {
