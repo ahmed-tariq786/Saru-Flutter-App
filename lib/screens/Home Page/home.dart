@@ -6,6 +6,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 import 'package:saru/generated/l10n.dart';
+import 'package:saru/screens/Collection/collection_screen.dart';
 import 'package:saru/screens/Search/search.dart';
 import 'package:saru/services/product_service.dart';
 import 'package:saru/widgets/Product/product_card.dart';
@@ -185,32 +186,73 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
 
-              //Best Sellers
               Padding(
                 padding: const EdgeInsets.all(12.0),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    myText(
-                      S.of(context).BestSeller,
-                      16,
-                      FontWeight.bold,
-                      Colors.black,
-                      TextAlign.left,
+                    // Best Sellers
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
+                      children: [
+                        myText(
+                          S.of(context).bestSeller,
+                          16,
+                          FontWeight.bold,
+                          Colors.black,
+                          TextAlign.left,
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            PersistentNavBarNavigator.pushNewScreen(
+                              context,
+                              screen: CollectionScreen(
+                                id: "gid://shopify/Collection/471890198782",
+                                title: S.of(context).bestSeller,
+                              ),
+                              withNavBar: true, // <--- keeps the bottom bar visible
+                              pageTransitionAnimation: PageTransitionAnimation.cupertino,
+                            );
+                          },
+                          child: Row(
+                            children: [
+                              myText(
+                                S.of(context).viewAll,
+                                13,
+                                FontWeight.w400,
+                                Colors.black,
+                                TextAlign.left,
+                              ),
+
+                              SizedBox(
+                                width: 5,
+                              ),
+
+                              Icon(
+                                Icons.arrow_forward_ios,
+                                size: 10,
+                                color: AppColors.black,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
                     ),
 
                     SizedBox(
                       height: 10,
                     ),
 
+                    // Best Sellers List
                     Obx(
                       () => SingleChildScrollView(
                         scrollDirection: Axis.horizontal,
 
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
-                          children: productsController.products
+                          children: productsController.homePage1
                               .map(
                                 (product) => Row(
                                   children: [
@@ -225,6 +267,117 @@ class _HomeScreenState extends State<HomeScreen> {
                               )
                               .toList(),
                         ),
+                      ),
+                    ),
+
+                    SizedBox(
+                      height: 10,
+                    ),
+
+                    // Banner 4
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(12),
+                      child: Image.asset(
+                        "assets/images/banner4.webp",
+                        fit: BoxFit.cover,
+
+                        alignment: Alignment.bottomCenter,
+                      ),
+                    ),
+
+                    SizedBox(
+                      height: 10,
+                    ),
+
+                    // Explore Our Products
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        myText(
+                          S.of(context).exploreOurProducts,
+                          16,
+                          FontWeight.bold,
+                          Colors.black,
+                          TextAlign.left,
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            PersistentNavBarNavigator.pushNewScreen(
+                              context,
+                              screen: CollectionScreen(
+                                id: "gid://shopify/Collection/471890264318",
+                                title: S.of(context).exploreOurProducts,
+                              ),
+                              withNavBar: true, // <--- keeps the bottom bar visible
+                              pageTransitionAnimation: PageTransitionAnimation.cupertino,
+                            );
+                          },
+                          child: Row(
+                            children: [
+                              myText(
+                                S.of(context).viewAll,
+                                13,
+                                FontWeight.w400,
+                                Colors.black,
+                                TextAlign.left,
+                              ),
+
+                              SizedBox(
+                                width: 5,
+                              ),
+
+                              Icon(
+                                Icons.arrow_forward_ios,
+                                size: 10,
+                                color: AppColors.black,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+
+                    SizedBox(
+                      height: 10,
+                    ),
+
+                    // Explore Our Products List
+                    Obx(
+                      () => SingleChildScrollView(
+                        scrollDirection: Axis.horizontal,
+
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: productsController.homePage2
+                              .map(
+                                (product) => Row(
+                                  children: [
+                                    ProductCard(
+                                      product: product,
+                                    ),
+                                    SizedBox(
+                                      width: 10.w,
+                                    ),
+                                  ],
+                                ),
+                              )
+                              .toList(),
+                        ),
+                      ),
+                    ),
+
+                    SizedBox(
+                      height: 10,
+                    ),
+
+                    // Banner 5
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(12),
+                      child: Image.asset(
+                        "assets/images/banner5.webp",
+                        fit: BoxFit.cover,
+
+                        alignment: Alignment.bottomCenter,
                       ),
                     ),
                   ],

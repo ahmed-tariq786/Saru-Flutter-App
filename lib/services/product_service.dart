@@ -2,6 +2,7 @@ import 'package:get/get.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:saru/graphql/queries/product_queries.dart';
 import 'package:saru/graphql/queries/recommended_queries.dart';
+import 'package:saru/models/filters.dart';
 import 'package:saru/models/product.dart';
 import 'package:saru/services/language.dart';
 import 'package:saru/services/shopify_client.dart';
@@ -9,6 +10,15 @@ import 'package:saru/services/shopify_client.dart';
 class ProductsController extends GetxController {
   RxList<Product> products = <Product>[].obs;
   RxList<Product> recommendedProducts = <Product>[].obs;
+
+  RxList<Product> homePage1 = <Product>[].obs;
+  RxList<Product> homePage2 = <Product>[].obs;
+
+  RxList<ProductFilter> filters1 = <ProductFilter>[].obs;
+  RxMap<String, dynamic> pageInfo1 = <String, dynamic>{}.obs;
+
+  RxList<ProductFilter> filters2 = <ProductFilter>[].obs;
+  RxMap<String, dynamic> pageInfo2 = <String, dynamic>{}.obs;
 
   Future<void> fetchProducts() async {
     try {

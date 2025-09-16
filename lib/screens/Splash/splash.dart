@@ -58,11 +58,27 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
           cartController.loadExistingCart(),
         ]);
 
+        // Fetch "Also Like" category products after collections are fetched
         final result = await collectionController.fetchProductsByCollectionId(
           "gid://shopify/Collection/471830659326",
         );
-
         cartController.alsoLikeCategory.value = result.products;
+
+        // Fetch homepage collections
+        final homePage1 = await collectionController.fetchProductsByCollectionId(
+          "gid://shopify/Collection/471890198782",
+        );
+        productsController.homePage1.value = homePage1.products;
+        productsController.filters1.value = homePage1.filters;
+        productsController.pageInfo1.value = homePage1.pageInfo!;
+
+        // Fetch second homepage collection
+        final homePage2 = await collectionController.fetchProductsByCollectionId(
+          "gid://shopify/Collection/471890264318",
+        );
+        productsController.homePage2.value = homePage2.products;
+        productsController.filters2.value = homePage2.filters;
+        productsController.pageInfo2.value = homePage2.pageInfo!;
 
         // Fetch cart only if cartId exists (depends on loadExistingCart)
         if (cartController.cartId.value.isNotEmpty) {

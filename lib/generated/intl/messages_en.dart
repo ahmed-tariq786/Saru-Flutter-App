@@ -36,6 +36,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "atc": MessageLookupByLibrary.simpleMessage("Add to Cart"),
     "availability": MessageLookupByLibrary.simpleMessage("Availability"),
     "bag": MessageLookupByLibrary.simpleMessage("Bag"),
+    "bestSeller": MessageLookupByLibrary.simpleMessage("Best Seller"),
     "bestSelling": MessageLookupByLibrary.simpleMessage("Best selling"),
     "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
     "category": MessageLookupByLibrary.simpleMessage("Category"),
@@ -46,6 +47,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "checkout": MessageLookupByLibrary.simpleMessage("Checkout"),
     "congratulations": MessageLookupByLibrary.simpleMessage("Congratulations!"),
     "couponCode": MessageLookupByLibrary.simpleMessage("Coupon code"),
+    "exploreOurProducts": MessageLookupByLibrary.simpleMessage(
+      "Explore Our Products",
+    ),
     "favorites": MessageLookupByLibrary.simpleMessage("Favorites"),
     "featured": MessageLookupByLibrary.simpleMessage("Featured"),
     "filterBy": MessageLookupByLibrary.simpleMessage("Filter By"),

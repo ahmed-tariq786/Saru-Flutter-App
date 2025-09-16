@@ -5,8 +5,8 @@ String getProductsByCollectionId(String locale) {
     \$filters: [ProductFilter!], 
     \$first: Int = 50, 
     \$after: String,
-    \$sortKey: ProductCollectionSortKeys = BEST_SELLING,
-    \$reverse: Boolean = false
+    \$sortKey: ProductCollectionSortKeys,
+    \$reverse: Boolean
   ) @inContext(language: ${locale.toUpperCase()}) {
     collection(id: \$id) {
       id

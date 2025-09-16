@@ -36,6 +36,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "atc": MessageLookupByLibrary.simpleMessage("أضف إلى السلة"),
     "availability": MessageLookupByLibrary.simpleMessage("التوفر"),
     "bag": MessageLookupByLibrary.simpleMessage("شنطة"),
+    "bestSeller": MessageLookupByLibrary.simpleMessage("الأكثر مبيعًا"),
     "bestSelling": MessageLookupByLibrary.simpleMessage("الأكثر مبيعاً"),
     "cancel": MessageLookupByLibrary.simpleMessage("يلغي"),
     "category": MessageLookupByLibrary.simpleMessage("فئة"),
@@ -46,6 +47,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "checkout": MessageLookupByLibrary.simpleMessage("الدفع"),
     "congratulations": MessageLookupByLibrary.simpleMessage("مبروك!"),
     "couponCode": MessageLookupByLibrary.simpleMessage("رمز القسيمة"),
+    "exploreOurProducts": MessageLookupByLibrary.simpleMessage(
+      "استكشف منتجاتنا",
+    ),
     "favorites": MessageLookupByLibrary.simpleMessage("المفضلة"),
     "featured": MessageLookupByLibrary.simpleMessage("مميز"),
     "filterBy": MessageLookupByLibrary.simpleMessage("تصفية بواسطة"),

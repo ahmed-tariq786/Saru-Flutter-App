@@ -27,8 +27,12 @@ class CollectionController extends GetxController {
             "filters": selectedFilters,
             "first": 52,
             if (after != null && after.isNotEmpty) "after": after,
-            if (selectedSortOption != null) "sortKey": selectedSortOption['sortKey'],
-            if (selectedSortOption != null) "reverse": selectedSortOption['reverse'],
+            // Only pass sort parameters when selectedSortOption is provided
+            // When null, Shopify will use the manual sorting from admin
+            if (selectedSortOption != null) ...{
+              "sortKey": selectedSortOption['sortKey'],
+              "reverse": selectedSortOption['reverse'],
+            },
           },
         ),
       );
