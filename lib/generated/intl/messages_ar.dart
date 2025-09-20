@@ -27,39 +27,135 @@ class MessageLookup extends MessageLookupByLibrary {
     "Specifications": MessageLookupByLibrary.simpleMessage("المواصفات"),
     "aboutSaru": MessageLookupByLibrary.simpleMessage("حول سارو"),
     "account": MessageLookupByLibrary.simpleMessage("حساب"),
+    "accountCreationLimitReachedPleaseWaitAFewMinutesBefore":
+        MessageLookupByLibrary.simpleMessage(
+          "تم الوصول إلى حد إنشاء الحساب. يرجى الانتظار بضع دقائق قبل المحاولة مرة أخرى.",
+        ),
     "add": MessageLookupByLibrary.simpleMessage("يضيف"),
+    "addANewAddress": MessageLookupByLibrary.simpleMessage(
+      "أضف عنوانًا جديدًا",
+    ),
+    "addAddress": MessageLookupByLibrary.simpleMessage("أضف العنوان"),
     "addSomeProductsToYourCart": MessageLookupByLibrary.simpleMessage(
       "أضف بعض المنتجات إلى عربة التسوق الخاصة بك",
     ),
+    "address": MessageLookupByLibrary.simpleMessage("عنوان"),
+    "addressDeletedSuccessfully": MessageLookupByLibrary.simpleMessage(
+      "تم حذف العنوان بنجاح",
+    ),
+    "addresses": MessageLookupByLibrary.simpleMessage("العناوين"),
     "allProducts": MessageLookupByLibrary.simpleMessage("جميع المنتجات"),
+    "alreadyHaveAnAccount": MessageLookupByLibrary.simpleMessage(
+      "هل لديك بالفعل حساب؟",
+    ),
+    "anErrorOccurredWhileDeletingTheAddressPleaseTryAgain":
+        MessageLookupByLibrary.simpleMessage(
+          "حدث خطأ أثناء حذف العنوان. من فضلك حاول مرة أخرى.",
+        ),
+    "anErrorOccurredWhileUpdatingTheAddressPleaseTryAgain":
+        MessageLookupByLibrary.simpleMessage(
+          "حدث خطأ أثناء تحديث العنوان. من فضلك حاول مرة أخرى.",
+        ),
+    "anUnexpectedErrorOccurredPleaseTryAgain":
+        MessageLookupByLibrary.simpleMessage(
+          "حدث خطأ غير متوقع. من فضلك حاول مرة أخرى.",
+        ),
+    "anUnknownErrorOccurred": MessageLookupByLibrary.simpleMessage(
+      "حدث خطأ غير معروف.",
+    ),
+    "and": MessageLookupByLibrary.simpleMessage("و"),
+    "apartmentSuiteEtc": MessageLookupByLibrary.simpleMessage(
+      "شقة ، جناح ، إلخ.",
+    ),
     "apply": MessageLookupByLibrary.simpleMessage("يتقدم"),
+    "areYouSureYouWantToDeleteThisAddress":
+        MessageLookupByLibrary.simpleMessage(
+          "هل أنت متأكد من أنك تريد حذف هذا العنوان؟",
+        ),
+    "areYouSureYouWantToLogout": MessageLookupByLibrary.simpleMessage(
+      "هل أنت متأكد أنك تريد تسجيل الدخول؟",
+    ),
     "atc": MessageLookupByLibrary.simpleMessage("أضف إلى السلة"),
+    "authenticationTokenIsInvalidPleaseTryLoggingInAgain":
+        MessageLookupByLibrary.simpleMessage(
+          "رمز المصادقة غير صالح. يرجى محاولة تسجيل الدخول مرة أخرى.",
+        ),
     "availability": MessageLookupByLibrary.simpleMessage("التوفر"),
     "bag": MessageLookupByLibrary.simpleMessage("شنطة"),
     "bestSeller": MessageLookupByLibrary.simpleMessage("الأكثر مبيعًا"),
     "bestSelling": MessageLookupByLibrary.simpleMessage("الأكثر مبيعاً"),
+    "brands": MessageLookupByLibrary.simpleMessage("العلامات التجارية"),
+    "byRegisteringYouAcceptOur": MessageLookupByLibrary.simpleMessage(
+      "عن طريق التسجيل ، أنت تقبل",
+    ),
     "cancel": MessageLookupByLibrary.simpleMessage("يلغي"),
+    "cart": MessageLookupByLibrary.simpleMessage("عربة"),
+    "categories": MessageLookupByLibrary.simpleMessage("فئات"),
     "category": MessageLookupByLibrary.simpleMessage("فئة"),
     "checkBackLaterOrExploreOtherCategories":
         MessageLookupByLibrary.simpleMessage(
           "تحقق مرة أخرى لاحقًا أو استكشف فئات أخرى.",
         ),
     "checkout": MessageLookupByLibrary.simpleMessage("الدفع"),
+    "city": MessageLookupByLibrary.simpleMessage("مدينة"),
+    "company": MessageLookupByLibrary.simpleMessage("شركة"),
     "congratulations": MessageLookupByLibrary.simpleMessage("مبروك!"),
+    "country": MessageLookupByLibrary.simpleMessage("دولة"),
     "couponCode": MessageLookupByLibrary.simpleMessage("رمز القسيمة"),
+    "createYourAccountHere": MessageLookupByLibrary.simpleMessage(
+      "قم بإنشاء حسابك هنا",
+    ),
+    "customerAccountNotFoundPleaseCheckYourInformationOrCreate":
+        MessageLookupByLibrary.simpleMessage(
+          "لم يتم العثور على حساب العميل. يرجى التحقق من معلوماتك أو إنشاء حساب جديد.",
+        ),
+    "deleteAddress": MessageLookupByLibrary.simpleMessage("حذف العنوان"),
+    "editAddress": MessageLookupByLibrary.simpleMessage("تحرير العنوان"),
+    "email": MessageLookupByLibrary.simpleMessage("بريد إلكتروني"),
+    "emailAlreadyExistsPleaseUseADifferentEmailOrTry":
+        MessageLookupByLibrary.simpleMessage(
+          "البريد الإلكتروني موجود بالفعل. يرجى استخدام بريد إلكتروني مختلف أو محاولة تسجيل الدخول.",
+        ),
     "exploreOurProducts": MessageLookupByLibrary.simpleMessage(
       "استكشف منتجاتنا",
+    ),
+    "failedToAddAddress": MessageLookupByLibrary.simpleMessage(
+      "فشل في إضافة عنوان",
     ),
     "favorites": MessageLookupByLibrary.simpleMessage("المفضلة"),
     "featured": MessageLookupByLibrary.simpleMessage("مميز"),
     "filterBy": MessageLookupByLibrary.simpleMessage("تصفية بواسطة"),
+    "firstName": MessageLookupByLibrary.simpleMessage("الاسم الأول"),
     "highToLow": MessageLookupByLibrary.simpleMessage("من الأعلى للأقل"),
+    "home": MessageLookupByLibrary.simpleMessage("بيت"),
     "inStock": MessageLookupByLibrary.simpleMessage("متوفر"),
     "items": MessageLookupByLibrary.simpleMessage("أغراض))"),
     "kdMore": MessageLookupByLibrary.simpleMessage("أكثر"),
     "language": MessageLookupByLibrary.simpleMessage("لغة"),
+    "lastName": MessageLookupByLibrary.simpleMessage("اسم العائلة"),
+    "login": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
+    "loginHere": MessageLookupByLibrary.simpleMessage("تسجيل الدخول هنا"),
+    "loginRegister": MessageLookupByLibrary.simpleMessage(
+      "تسجيل الدخول / التسجيل",
+    ),
+    "logout": MessageLookupByLibrary.simpleMessage("تسجيل الخروج"),
+    "lostPassword": MessageLookupByLibrary.simpleMessage(
+      "كلمة المرور المفقودة؟",
+    ),
     "lowToHigh": MessageLookupByLibrary.simpleMessage("من الأقل للأعلى"),
+    "nameIsTooLongPleaseUseAShorterName": MessageLookupByLibrary.simpleMessage(
+      "الاسم طويل جدًا. الرجاء استخدام اسم أقصر.",
+    ),
+    "networkErrorPleaseCheckYourConnectionAndTryAgain":
+        MessageLookupByLibrary.simpleMessage(
+          "خطأ في الشبكة. يرجى التحقق من اتصالك وحاول مرة أخرى.",
+        ),
+    "newCustomer": MessageLookupByLibrary.simpleMessage("عميل جديد؟"),
     "newProducts": MessageLookupByLibrary.simpleMessage("الأحدث"),
+    "no": MessageLookupByLibrary.simpleMessage("لا"),
+    "noAddressesAdded": MessageLookupByLibrary.simpleMessage(
+      "لم تتم إضافة عناوين",
+    ),
     "noProductsFound": MessageLookupByLibrary.simpleMessage(
       "لم يتم العثور على منتجات",
     ),
@@ -70,16 +166,94 @@ class MessageLookup extends MessageLookupByLibrary {
       "أُووبس! لا شيء هنا بعد.",
     ),
     "outOfStock": MessageLookupByLibrary.simpleMessage("إنتهى من المخزن"),
+    "password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
+    "passwordCannotStartOrEndWithSpacesPleaseRemoveExtra":
+        MessageLookupByLibrary.simpleMessage(
+          "لا يمكن أن تبدأ كلمة المرور أو تنتهي بالمسافات. يرجى إزالة المساحات الإضافية.",
+        ),
+    "passwordIsTooLongPleaseUseAShorterPassword":
+        MessageLookupByLibrary.simpleMessage(
+          "كلمة المرور طويلة جدًا. الرجاء استخدام كلمة مرور أقصر.",
+        ),
+    "passwordIsTooWeakPleaseUseAStrongerPassword":
+        MessageLookupByLibrary.simpleMessage(
+          "كلمة المرور ضعيفة للغاية. يرجى استخدام كلمة مرور أقوى.",
+        ),
+    "passwordMustBeAtLeast8CharactersLong":
+        MessageLookupByLibrary.simpleMessage(
+          "يجب أن يكون طول كلمة المرور 8 أحرف على الأقل",
+        ),
+    "passwordMustContainAtLeastOneUppercaseLetterOneLowercase":
+        MessageLookupByLibrary.simpleMessage(
+          "يجب أن تحتوي كلمة المرور على حرف كبير واحد على الأقل ، وحرف صغير واحد ، ورقم واحد",
+        ),
+    "phoneNumber": MessageLookupByLibrary.simpleMessage("رقم التليفون"),
+    "pleaseCreateAnAccountWithYourEmailAddress":
+        MessageLookupByLibrary.simpleMessage(
+          "يرجى إنشاء حساب مع عنوان بريدك الإلكتروني",
+        ),
+    "pleaseEnterAValidEmailAddress": MessageLookupByLibrary.simpleMessage(
+      "يرجى إدخال عنوان بريد إلكتروني صالح",
+    ),
+    "pleaseEnterAValidEmailAddressTheDomainNameIs":
+        MessageLookupByLibrary.simpleMessage(
+          "يرجى إدخال عنوان بريد إلكتروني صالح. اسم المجال غير صالح.",
+        ),
+    "pleaseEnterYourAddress": MessageLookupByLibrary.simpleMessage(
+      "الرجاء إدخال عنوانك",
+    ),
+    "pleaseEnterYourCity": MessageLookupByLibrary.simpleMessage(
+      "الرجاء إدخال مدينتك",
+    ),
+    "pleaseEnterYourCountry": MessageLookupByLibrary.simpleMessage(
+      "الرجاء إدخال بلدك",
+    ),
+    "pleaseEnterYourCredentials": MessageLookupByLibrary.simpleMessage(
+      "الرجاء إدخال بيانات الاعتماد الخاصة بك",
+    ),
+    "pleaseEnterYourEmail": MessageLookupByLibrary.simpleMessage(
+      "الرجاء إدخال بريدك الإلكتروني",
+    ),
+    "pleaseEnterYourFirstName": MessageLookupByLibrary.simpleMessage(
+      "الرجاء إدخال اسمك الأول",
+    ),
+    "pleaseEnterYourLastName": MessageLookupByLibrary.simpleMessage(
+      "الرجاء إدخال اسمك الأخير",
+    ),
+    "pleaseEnterYourPassword": MessageLookupByLibrary.simpleMessage(
+      "الرجاء إدخال كلمة المرور الخاصة بك",
+    ),
+    "pleaseEnterYourPhoneNumber": MessageLookupByLibrary.simpleMessage(
+      "الرجاء إدخال رقم هاتفك",
+    ),
+    "pleaseEnterYourPostalzipCode": MessageLookupByLibrary.simpleMessage(
+      "الرجاء إدخال الرمز البريدي/البريدي الخاص بك",
+    ),
+    "pleaseFillInAllRequiredFields": MessageLookupByLibrary.simpleMessage(
+      "يرجى ملء جميع الحقول المطلوبة.",
+    ),
+    "pleaseRemoveAnyHtmlTagsFromYourInput":
+        MessageLookupByLibrary.simpleMessage(
+          "يرجى إزالة أي علامات HTML من مدخلاتك.",
+        ),
+    "postalzipCode": MessageLookupByLibrary.simpleMessage("رمز البريد/البريدي"),
+    "privacyPolicy": MessageLookupByLibrary.simpleMessage("سياسة الخصوصية."),
     "products": MessageLookupByLibrary.simpleMessage("منتجات"),
+    "profile": MessageLookupByLibrary.simpleMessage("حساب تعريفي"),
     "recentlySearched": MessageLookupByLibrary.simpleMessage(
       "تم تفتيشه مؤخرًا",
     ),
     "recommendedProducts": MessageLookupByLibrary.simpleMessage(
       "المنتجات الموصى بها",
     ),
+    "recoverPassword": MessageLookupByLibrary.simpleMessage(
+      "استعادة كلمة المرور",
+    ),
+    "register": MessageLookupByLibrary.simpleMessage("يسجل"),
     "relevance": MessageLookupByLibrary.simpleMessage("الأهمية"),
     "remove": MessageLookupByLibrary.simpleMessage("يزيل"),
     "reset": MessageLookupByLibrary.simpleMessage("إعادة ضبط"),
+    "save": MessageLookupByLibrary.simpleMessage("يحفظ"),
     "search": MessageLookupByLibrary.simpleMessage("يبحث"),
     "searchBrands": MessageLookupByLibrary.simpleMessage(
       "البحث العلامات التجارية",
@@ -90,16 +264,69 @@ class MessageLookup extends MessageLookupByLibrary {
     "seeLess": MessageLookupByLibrary.simpleMessage("انظر أقل"),
     "seeMore": MessageLookupByLibrary.simpleMessage("رؤية المزيد"),
     "selectLanguage": MessageLookupByLibrary.simpleMessage("حدد اللغة"),
+    "setAsDefaultAddress": MessageLookupByLibrary.simpleMessage(
+      "تعيين كعنوان افتراضي",
+    ),
     "shopNow": MessageLookupByLibrary.simpleMessage("تسوق الآن"),
     "showing": MessageLookupByLibrary.simpleMessage("تظهر"),
     "sortBy": MessageLookupByLibrary.simpleMessage("ترتيب حسب"),
     "subtotal": MessageLookupByLibrary.simpleMessage("نطاق فرعي"),
     "suggestions": MessageLookupByLibrary.simpleMessage("اقتراحات"),
+    "termsAndConditions": MessageLookupByLibrary.simpleMessage(
+      "الشروط والأحكام",
+    ),
+    "theActivationTokenIsInvalidOrHasExpiredPleaseRequest":
+        MessageLookupByLibrary.simpleMessage(
+          "رمز التنشيط غير صالح أو انتهت صلاحيته. الرجاء طلب واحد جديد.",
+        ),
+    "theInformationYouEnteredIsInvalidPleaseCheckAndTry":
+        MessageLookupByLibrary.simpleMessage(
+          "المعلومات التي أدخلتها غير صالحة. يرجى التحقق والمحاولة مرة أخرى.",
+        ),
+    "theInputIsTooLongPleaseUseFewerCharacters":
+        MessageLookupByLibrary.simpleMessage(
+          "المدخلات طويلة جدا. الرجاء استخدام عدد أقل من الأحرف.",
+        ),
+    "theInputIsTooShortPleaseAddMoreCharacters":
+        MessageLookupByLibrary.simpleMessage(
+          "المدخلات قصيرة جدا. الرجاء إضافة المزيد من الأحرف.",
+        ),
+    "theRequestedInformationCouldNotBeFound":
+        MessageLookupByLibrary.simpleMessage(
+          "لا يمكن العثور على المعلومات المطلوبة.",
+        ),
+    "thisCustomerAccountHasBeenDisabledPleaseContactSupport":
+        MessageLookupByLibrary.simpleMessage(
+          "تم تعطيل حساب العميل هذا. يرجى الاتصال بالدعم.",
+        ),
+    "thisCustomerAccountIsAlreadyActive": MessageLookupByLibrary.simpleMessage(
+      "حساب العميل هذا نشط بالفعل.",
+    ),
+    "thisInformationIsAlreadyInUsePleaseTryADifferent":
+        MessageLookupByLibrary.simpleMessage(
+          "هذه المعلومات قيد الاستخدام بالفعل. يرجى تجربة قيمة مختلفة.",
+        ),
+    "tooManyAttemptsPleaseWaitAMomentBeforeTryingAgain":
+        MessageLookupByLibrary.simpleMessage(
+          "الكثير من المحاولات. من فضلك انتظر لحظة قبل المحاولة مرة أخرى.",
+        ),
     "trySearchingWithDifferentKeywords": MessageLookupByLibrary.simpleMessage(
       "حاول البحث بكلمات رئيسية مختلفة",
     ),
+    "unexpectedErrorOccurred": MessageLookupByLibrary.simpleMessage(
+      "حدث خطأ غير متوقع.",
+    ),
+    "urlsAreNotAllowedInThisField": MessageLookupByLibrary.simpleMessage(
+      "URL غير مسموح به في هذا المجال.",
+    ),
     "viewAll": MessageLookupByLibrary.simpleMessage("عرض الكل"),
     "wantFreeShipping": MessageLookupByLibrary.simpleMessage("تريد شحن مجاني؟"),
+    "yesDelete": MessageLookupByLibrary.simpleMessage("نعم ، حذف"),
+    "yesLogout": MessageLookupByLibrary.simpleMessage("نعم ، تسجيل الدخول"),
+    "youHaventAddedAnyAddressesYetAddANewAddress":
+        MessageLookupByLibrary.simpleMessage(
+          "لم تضيف أي عناوين بعد. أضف عنوانًا جديدًا لجعل الخروج أسرع وأسهل.",
+        ),
     "youMayAlsoLike": MessageLookupByLibrary.simpleMessage("قد تعجبك أيضًا"),
     "youSaved": MessageLookupByLibrary.simpleMessage("لقد أنقذت:"),
     "yourCartIsEmpty": MessageLookupByLibrary.simpleMessage("عربتك فارغة"),

@@ -8,7 +8,7 @@ import 'package:saru/services/brands_service.dart';
 import 'package:saru/widgets/constants/cache_image.dart';
 import 'package:saru/widgets/constants/colors.dart';
 import 'package:saru/widgets/constants/my_text.dart';
-import 'package:saru/widgets/constants/text_Style.dart';
+import 'package:saru/widgets/constants/text_style.dart';
 
 class BrandsScreen extends StatefulWidget {
   const BrandsScreen({super.key});

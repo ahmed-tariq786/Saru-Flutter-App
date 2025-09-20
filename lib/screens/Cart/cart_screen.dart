@@ -15,7 +15,7 @@ import 'package:saru/widgets/constants/cache_image.dart';
 import 'package:saru/widgets/constants/colors.dart';
 import 'package:saru/widgets/constants/loader.dart';
 import 'package:saru/widgets/constants/my_text.dart';
-import 'package:saru/widgets/constants/text_Style.dart';
+import 'package:saru/widgets/constants/text_style.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class CartScreen extends StatefulWidget {
@@ -806,7 +806,7 @@ class _CartScreenState extends State<CartScreen> {
           SvgPicture.asset(
             "assets/icons/empty_cart.svg",
             width: 50,
-            color: AppColors.darkGrey,
+            color: AppColors.grey.withOpacity(0.5),
           ),
           Column(
             spacing: 6,

@@ -18,48 +18,53 @@ Widget html(String htmlContent) {
 
           right: 0,
         ), // no extra left margin
-        fontSize: FontSize(12),
+        fontSize: FontSize(13),
         listStyleType: ListStyleType.disc, // ✅ ensures bullet appears
       ),
       "p": Style(
         fontFamily: "Arial",
         letterSpacing: 0.6,
-        fontSize: FontSize(12),
+        fontSize: FontSize(13),
+      ),
+      "div": Style(
+        fontFamily: "Arial",
+        letterSpacing: 0.6,
+        fontSize: FontSize(13),
       ),
       "h1": Style(
         fontFamily: "Arial",
         letterSpacing: 0.6,
-        fontSize: FontSize(16),
+        fontSize: FontSize(18),
         fontWeight: FontWeight.w900,
       ),
       "h2": Style(
         fontFamily: "Arial",
         letterSpacing: 0.6,
-        fontSize: FontSize(16),
+        fontSize: FontSize(18),
         fontWeight: FontWeight.w900,
       ),
       "h3": Style(
         fontFamily: "Arial",
         letterSpacing: 0.6,
-        fontSize: FontSize(16),
+        fontSize: FontSize(18),
         fontWeight: FontWeight.w900,
       ),
       "h4": Style(
         fontFamily: "Arial",
         letterSpacing: 0.6,
-        fontSize: FontSize(16),
+        fontSize: FontSize(18),
         fontWeight: FontWeight.w900,
       ),
       "h5": Style(
         fontFamily: "Arial",
         letterSpacing: 0.6,
-        fontSize: FontSize(16),
+        fontSize: FontSize(18),
         fontWeight: FontWeight.w900,
       ),
       "h6": Style(
         fontFamily: "Arial",
         letterSpacing: 0.6,
-        fontSize: FontSize(16),
+        fontSize: FontSize(18),
         fontWeight: FontWeight.w900,
       ),
     },

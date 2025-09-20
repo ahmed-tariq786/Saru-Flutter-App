@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
+import 'package:saru/models/account.dart';
 import 'package:saru/screens/Bottom%20Bar/bottom_bar.dart';
+import 'package:saru/services/account_service.dart';
 import 'package:saru/services/brands_service.dart';
 import 'package:saru/services/cart_service.dart';
 import 'package:saru/services/collection_service.dart';
@@ -30,6 +32,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
   final collectionController = Get.put(CollectionController());
   final favoritesController = Get.put(FavoritesController());
   final brandsController = Get.put(BrandsController());
+  final accountController = Get.put(AccountController());
 
   @override
   void initState() {
@@ -56,7 +59,12 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
           favoritesController.loadFavorites(),
           brandsController.fetchBrandsMenu(),
           cartController.loadExistingCart(),
+          accountController.loadStoredAuthentication(),
         ]);
+
+        if (accountController.currentCustomer.value != null) {
+          printCustomerData(accountController.currentCustomer.value!);
+        }
 
         // Fetch "Also Like" category products after collections are fetched
         final result = await collectionController.fetchProductsByCollectionId(
@@ -179,5 +187,22 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
         ),
       ),
     );
+  }
+
+  void printCustomerData(Customer customer) {
+    print('=== CUSTOMER DATA ===');
+    print('ID: ${customer.id}');
+    print('Email: ${customer.email}');
+    print('First Name: ${customer.firstName}');
+    print('Last Name: ${customer.lastName}');
+    print('Phone: ${customer.phone}');
+    print('Accepts Marketing: ${customer.acceptsMarketing}');
+    print('Created At: ${customer.createdAt}');
+    print('Updated At: ${customer.updatedAt}');
+    print('Tags: ${customer.tags}');
+
+    print('');
+
+    print('==================');
   }
 }

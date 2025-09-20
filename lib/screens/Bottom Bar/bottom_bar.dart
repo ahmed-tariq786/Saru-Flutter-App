@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get_utils/src/extensions/string_extensions.dart';
 import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
+import 'package:saru/generated/l10n.dart';
 import 'package:saru/screens/Account/account.dart';
 import 'package:saru/screens/Brands/brands_screen.dart';
 import 'package:saru/screens/Cart/cart_screen.dart';
@@ -43,6 +44,23 @@ class _MainPageState extends State<MainPage> {
     ];
   }
 
+  String _getTabLabel(String iconName) {
+    switch (iconName) {
+      case 'home':
+        return S.of(context).home;
+      case 'Categories':
+        return S.of(context).categories;
+      case 'Brands':
+        return S.of(context).brands;
+      case 'Cart':
+        return S.of(context).cart;
+      case 'Profile':
+        return S.of(context).profile;
+      default:
+        return iconName.capitalizeFirst!;
+    }
+  }
+
   List<PersistentBottomNavBarItem> _navBarsItems() {
     final icons = ['home', 'Categories', 'Brands', 'Cart', 'Profile'];
 
@@ -63,7 +81,7 @@ class _MainPageState extends State<MainPage> {
             ),
             SizedBox(height: 2.h), // tighter gap
             myText(
-              name.capitalizeFirst!,
+              _getTabLabel(name),
               10,
               FontWeight.w400,
               AppColors.black,
@@ -85,7 +103,7 @@ class _MainPageState extends State<MainPage> {
             ),
             SizedBox(height: 2.h), // tighter gap
             myText(
-              name.capitalizeFirst!,
+              _getTabLabel(name),
               10,
               FontWeight.w400,
               AppColors.grey,
