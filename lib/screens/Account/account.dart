@@ -10,6 +10,7 @@ import 'package:saru/screens/Account/Profile/profile_screen.dart';
 import 'package:saru/screens/Account/favorites.dart';
 import 'package:saru/screens/Account/login/login_screen.dart';
 import 'package:saru/services/account_service.dart';
+import 'package:saru/services/cart_service.dart';
 import 'package:saru/services/language.dart';
 import 'package:saru/widgets/constants/button.dart';
 import 'package:saru/widgets/constants/colors.dart';
@@ -26,6 +27,7 @@ class AccountScreen extends StatefulWidget {
 
 class _AccountScreenState extends State<AccountScreen> {
   final LanguageController languageController = Get.find<LanguageController>();
+  final cartController = Get.find<CartController>();
 
   final accountController = Get.find<AccountController>();
 
@@ -65,40 +67,40 @@ class _AccountScreenState extends State<AccountScreen> {
               child: Obx(
                 () => Column(
                   children: [
-                    // if (!accountController.isLoggedIn.value)
-                    // Account
-                    ListTile(
-                      minTileHeight: 0,
-                      contentPadding: const EdgeInsets.symmetric(
-                        horizontal: 12,
-                        vertical: 12,
-                      ),
-                      leading: Icon(
-                        Icons.person,
-                        color: AppColors.darkGrey.withOpacity(0.9),
-                      ),
-                      title: myText(
-                        S.of(context).loginRegister,
-                        14,
-                        FontWeight.w500,
-                        Colors.black,
-                        TextAlign.start,
-                      ),
+                    if (!accountController.isLoggedIn.value)
+                      // Account
+                      ListTile(
+                        minTileHeight: 0,
+                        contentPadding: const EdgeInsets.symmetric(
+                          horizontal: 12,
+                          vertical: 12,
+                        ),
+                        leading: Icon(
+                          Icons.person,
+                          color: AppColors.darkGrey.withOpacity(0.9),
+                        ),
+                        title: myText(
+                          S.of(context).loginRegister,
+                          14,
+                          FontWeight.w500,
+                          Colors.black,
+                          TextAlign.start,
+                        ),
 
-                      trailing: Icon(
-                        Icons.arrow_forward_ios,
-                        size: 14,
-                        color: AppColors.darkGrey.withOpacity(0.7),
+                        trailing: Icon(
+                          Icons.arrow_forward_ios,
+                          size: 14,
+                          color: AppColors.darkGrey.withOpacity(0.7),
+                        ),
+                        onTap: () {
+                          PersistentNavBarNavigator.pushNewScreen(
+                            context,
+                            screen: LoginRegisterScreen(),
+                            withNavBar: false, // <--- keeps the bottom bar visible
+                            pageTransitionAnimation: PageTransitionAnimation.cupertino,
+                          );
+                        },
                       ),
-                      onTap: () {
-                        PersistentNavBarNavigator.pushNewScreen(
-                          context,
-                          screen: LoginRegisterScreen(),
-                          withNavBar: false, // <--- keeps the bottom bar visible
-                          pageTransitionAnimation: PageTransitionAnimation.cupertino,
-                        );
-                      },
-                    ),
 
                     // Profile
                     if (accountController.isLoggedIn.value)
@@ -367,11 +369,10 @@ class _AccountScreenState extends State<AccountScreen> {
   }
 
   void showLogoutDialog(BuildContext context) {
+    RxBool isLoading = false.obs;
     showDialog(
       context: context,
       builder: (BuildContext context) {
-        bool isLoading = false;
-
         return StatefulBuilder(
           builder: (context, setState) {
             return AlertDialog(
@@ -418,24 +419,40 @@ class _AccountScreenState extends State<AccountScreen> {
                     const SizedBox(
                       height: 10,
                     ),
-                    RoundButton(
-                      textcolor: AppColors.white,
-                      isheading: true,
+                    Obx(
+                      () => RoundButton(
+                        textcolor: AppColors.white,
+                        isheading: true,
+                        loading: isLoading.value,
+                        text: S.of(context).yesLogout,
+                        align: TextAlign.center,
 
-                      text: S.of(context).yesLogout,
-                      align: TextAlign.center,
+                        backgroundColor: AppColors.black,
+                        borderColor: AppColors.black,
+                        height: 50,
+                        width: MediaQuery.sizeOf(context).width,
+                        radius: 42,
+                        onClick: () async {
+                          isLoading.value = true;
 
-                      backgroundColor: AppColors.black,
-                      borderColor: AppColors.black,
-                      height: 50,
-                      width: MediaQuery.sizeOf(context).width,
-                      radius: 42,
-                      onClick: () async {
-                        await accountController.logout();
-                        Get.back();
-                      },
-                      fontSize: 16.sp,
-                      fontWeight: FontWeight.w600,
+                          // 1. Logout customer
+                          await accountController.logout();
+
+                          // 2. Wipe local cart state
+                          cartController.cartId.value = '';
+                          cartController.lines.clear();
+                          cartController.subtotal.value = '0';
+                          cartController.checkoutUrl.value = '';
+
+                          // 3. Create a brand new guest cart
+                          await cartController.createCart();
+
+                          isLoading.value = false;
+                          Get.back();
+                        },
+                        fontSize: 16.sp,
+                        fontWeight: FontWeight.w600,
+                      ),
                     ),
                   ],
                 ),

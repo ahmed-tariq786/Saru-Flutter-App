@@ -1478,6 +1478,26 @@ class S {
       args: [],
     );
   }
+
+  /// `Logged in successfully`
+  String get loggedInSuccessfully {
+    return Intl.message(
+      'Logged in successfully',
+      name: 'loggedInSuccessfully',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `An error occurred, please try again.`
+  String get anErrorOccurredPleaseTryAgain {
+    return Intl.message(
+      'An error occurred, please try again.',
+      name: 'anErrorOccurredPleaseTryAgain',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

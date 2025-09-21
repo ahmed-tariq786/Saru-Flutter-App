@@ -46,6 +46,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "alreadyHaveAnAccount": MessageLookupByLibrary.simpleMessage(
       "Already have an account? ",
     ),
+    "anErrorOccurredPleaseTryAgain": MessageLookupByLibrary.simpleMessage(
+      "An error occurred, please try again.",
+    ),
     "anErrorOccurredWhileDeletingTheAddressPleaseTryAgain":
         MessageLookupByLibrary.simpleMessage(
           "An error occurred while deleting the address. Please try again.",
@@ -166,6 +169,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "kdMore": MessageLookupByLibrary.simpleMessage(" more"),
     "language": MessageLookupByLibrary.simpleMessage("Language"),
     "lastName": MessageLookupByLibrary.simpleMessage("Last Name"),
+    "loggedInSuccessfully": MessageLookupByLibrary.simpleMessage(
+      "Logged in successfully",
+    ),
     "login": MessageLookupByLibrary.simpleMessage("Login"),
     "loginHere": MessageLookupByLibrary.simpleMessage("Login here"),
     "loginRegister": MessageLookupByLibrary.simpleMessage("Login / Register"),

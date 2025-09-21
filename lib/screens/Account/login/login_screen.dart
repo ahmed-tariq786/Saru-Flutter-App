@@ -5,6 +5,7 @@ import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 import 'package:saru/generated/l10n.dart';
 import 'package:saru/screens/Account/login/register_screen.dart';
 import 'package:saru/services/account_service.dart';
+import 'package:saru/services/cart_service.dart';
 import 'package:saru/widgets/constants/back.dart';
 import 'package:saru/widgets/constants/button.dart';
 import 'package:saru/widgets/constants/colors.dart';
@@ -25,6 +26,8 @@ class _LoginRegisterScreenState extends State<LoginRegisterScreen> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   FocusNode emailFocusNode = FocusNode();
+
+  final cartController = Get.find<CartController>();
 
   RxBool isHidden = true.obs;
 
@@ -92,7 +95,19 @@ class _LoginRegisterScreenState extends State<LoginRegisterScreen> {
       if (result.errorMessage != null) {
         ShowToast().showErrorToast(result.errorMessage!);
       } else {
-        ShowToast().showSuccessToast("Logged in successfully");
+        if (cartController.cartId.value.isNotEmpty && accountController.customerAccessToken.value.isNotEmpty) {
+          var result = await cartController.attachCartToCustomer(
+            cartController.cartId.value,
+            accountController.customerAccessToken.value,
+          );
+
+          if (!result) {
+            ShowToast().showErrorToast(S.of(context).anErrorOccurredPleaseTryAgain);
+            return;
+          }
+        }
+
+        ShowToast().showSuccessToast(S.of(context).loggedInSuccessfully);
         PersistentNavBarNavigator.pop(context);
       }
     }

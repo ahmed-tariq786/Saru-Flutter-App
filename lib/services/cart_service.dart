@@ -1,8 +1,10 @@
 import 'package:get/get.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
+import 'package:saru/graphql/mutation/cart_buyer.dart';
 import 'package:saru/graphql/mutation/cart_mutation.dart';
 import 'package:saru/models/cart_line.dart';
 import 'package:saru/models/product.dart';
+import 'package:saru/services/account_service.dart';
 import 'package:saru/services/discount_service.dart';
 import 'package:saru/services/language.dart';
 import 'package:saru/services/shopify_client.dart';
@@ -12,6 +14,8 @@ class CartController extends GetxController {
   RxString cartId = ''.obs;
   RxString checkoutUrl = ''.obs;
   var lines = <CartLine>[].obs;
+
+  final accountController = Get.put(AccountController());
 
   RxString subtotal = '0'.obs;
 
@@ -169,11 +173,23 @@ class CartController extends GetxController {
     try {
       final languageCode = Get.find<LanguageController>().currentLocale.value.languageCode;
 
+      // Default input
+      final input = <String, dynamic>{};
+
+      // If user is logged in, attach identity immediately
+      final token = accountController.customerAccessToken.value;
+      if (token.isNotEmpty) {
+        input['buyerIdentity'] = {
+          "customerAccessToken": token,
+        };
+      }
+
+      print(input);
+
       final result = await client.mutate(
         MutationOptions(
-          document: gql(
-            createCartMutation(locale: languageCode),
-          ),
+          document: gql(createCartMutation(locale: languageCode)),
+          variables: {"input": input},
           fetchPolicy: FetchPolicy.networkOnly,
         ),
       );
@@ -189,11 +205,8 @@ class CartController extends GetxController {
       checkoutUrl.value = cartData['checkoutUrl'] as String;
 
       await _saveCheckoutCartIdUrl(checkoutUrl.value, cartId.value);
-
-      return;
     } catch (e) {
       print("Error creating cart: $e");
-      return;
     }
   }
 
@@ -605,5 +618,69 @@ class CartController extends GetxController {
       newCheckoutUrl,
       newCartId,
     );
+  }
+
+  // ==================== Link cart with the account ====================
+
+  Future<bool> attachCartToCustomer(String cartId, String customerAccessToken) async {
+    final result = await client.mutate(
+      MutationOptions(
+        document: gql(
+          cartBuyerIdentityUpdateMutation,
+        ),
+        variables: {
+          "cartId": cartId, // 👈 pass as variable
+          "buyerIdentity": {
+            "customerAccessToken": customerAccessToken,
+          },
+        },
+        fetchPolicy: FetchPolicy.networkOnly,
+      ),
+    );
+
+    if (result.hasException) {
+      print(result.exception.toString());
+      return false;
+    }
+
+    final errors = result.data?['cartBuyerIdentityUpdate']?['userErrors'] as List?;
+    if (errors != null && errors.isNotEmpty) {
+      print("Cart attach error: ${errors.first['message']}");
+      return false;
+    }
+
+    return true;
+  }
+
+  Future<bool> deattachCartToCustomer(
+    String cartId,
+  ) async {
+    final result = await client.mutate(
+      MutationOptions(
+        document: gql(
+          cartBuyerIdentitydeleteMutation,
+        ),
+        variables: {
+          "cartId": cartId, // 👈 pass as variable
+          "buyerIdentity": {
+            "customerAccessToken": null, // 👈 explicitly remove link
+          },
+        },
+        fetchPolicy: FetchPolicy.networkOnly,
+      ),
+    );
+
+    if (result.hasException) {
+      print(result.exception.toString());
+      return false;
+    }
+
+    final errors = result.data?['cartBuyerIdentityUpdate']?['userErrors'] as List?;
+    if (errors != null && errors.isNotEmpty) {
+      print("Cart attach error: ${errors.first['message']}");
+      return false;
+    }
+
+    return true;
   }
 }

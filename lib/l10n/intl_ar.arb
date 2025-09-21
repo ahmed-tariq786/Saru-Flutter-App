@@ -180,5 +180,7 @@
   "failedToCreateAccessTokenPleaseTryAgain": "فشل في إنشاء رمز الوصول. من فضلك حاول مرة أخرى.",
   "invalidEmailOrPasswordPleaseCheckYourCredentialsAndTry": "بريد إلكتروني غير صالح أو كلمة مرور. يرجى التحقق من بيانات الاعتماد الخاصة بك والمحاولة مرة أخرى.",
   "failedToLogInPleaseTryAgain": "فشل في تسجيل الدخول. يرجى المحاولة مرة أخرى.",
-  "tooManyLoginAttemptsPleaseWaitAFewMinutesBefore": "الكثير من محاولات تسجيل الدخول. يرجى الانتظار بضع دقائق قبل المحاولة مرة أخرى."
+  "tooManyLoginAttemptsPleaseWaitAFewMinutesBefore": "الكثير من محاولات تسجيل الدخول. يرجى الانتظار بضع دقائق قبل المحاولة مرة أخرى.",
+  "loggedInSuccessfully": "Logged in successfully",
+  "anErrorOccurredPleaseTryAgain": "An error occurred, please try again."
 }

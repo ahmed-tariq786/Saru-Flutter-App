@@ -48,6 +48,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "alreadyHaveAnAccount": MessageLookupByLibrary.simpleMessage(
       "هل لديك بالفعل حساب؟",
     ),
+    "anErrorOccurredPleaseTryAgain": MessageLookupByLibrary.simpleMessage(
+      "An error occurred, please try again.",
+    ),
     "anErrorOccurredWhileDeletingTheAddressPleaseTryAgain":
         MessageLookupByLibrary.simpleMessage(
           "حدث خطأ أثناء حذف العنوان. من فضلك حاول مرة أخرى.",
@@ -168,6 +171,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "kdMore": MessageLookupByLibrary.simpleMessage("أكثر"),
     "language": MessageLookupByLibrary.simpleMessage("لغة"),
     "lastName": MessageLookupByLibrary.simpleMessage("اسم العائلة"),
+    "loggedInSuccessfully": MessageLookupByLibrary.simpleMessage(
+      "Logged in successfully",
+    ),
     "login": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
     "loginHere": MessageLookupByLibrary.simpleMessage("تسجيل الدخول هنا"),
     "loginRegister": MessageLookupByLibrary.simpleMessage(

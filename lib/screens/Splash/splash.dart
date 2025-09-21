@@ -58,7 +58,8 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
           menusController.fetchMainMenu(),
           favoritesController.loadFavorites(),
           brandsController.fetchBrandsMenu(),
-          cartController.loadExistingCart(),
+          cartController.clearCartData(),
+          // cartController.loadExistingCart(),
           accountController.loadStoredAuthentication(),
         ]);
 

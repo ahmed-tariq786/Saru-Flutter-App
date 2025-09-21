@@ -180,5 +180,7 @@
   "failedToCreateAccessTokenPleaseTryAgain": "Failed to create access token. Please try again.",
   "invalidEmailOrPasswordPleaseCheckYourCredentialsAndTry": "Invalid email or password. Please check your credentials and try again.",
   "failedToLogInPleaseTryAgain": "Failed to log in. Please try again.",
-  "tooManyLoginAttemptsPleaseWaitAFewMinutesBefore": "Too many login attempts. Please wait a few minutes before trying again."
+  "tooManyLoginAttemptsPleaseWaitAFewMinutesBefore": "Too many login attempts. Please wait a few minutes before trying again.",
+  "loggedInSuccessfully": "Logged in successfully",
+  "anErrorOccurredPleaseTryAgain": "An error occurred, please try again."
 }

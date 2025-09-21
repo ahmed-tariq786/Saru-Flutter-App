@@ -186,7 +186,7 @@ class AddressController extends GetxController {
     }
   }
 
-  Future<GetAddressResult> getAddresses(String token, {int first = 2, String? afterCursor}) async {
+  Future<GetAddressResult> getAddresses(String token, {int first = 10, String? afterCursor}) async {
     final result = await client.query(
       QueryOptions(
         document: gql(

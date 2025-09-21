@@ -1,76 +1,14 @@
 String createCartMutation({String locale = 'EN'}) {
   return '''
-  mutation CreateCart(\$lines: [CartLineInput!]) @inContext(language: ${locale.toUpperCase()}) {
-    cartCreate(input: { lines: \$lines }) {
+  mutation CreateCart(\$input: CartInput!) @inContext(language: ${locale.toUpperCase()}) {
+    cartCreate(input: \$input) {
       cart {
         id
         checkoutUrl
-        lines(first: 20) {
-          edges {
-            node {
-              id
-              quantity
-              merchandise {
-                ... on ProductVariant {
-                  id
-                  title
-                  sku
-                  availableForSale
-                  quantityAvailable
-                  price {
-                    amount
-                    currencyCode
-                  }
-                  compareAtPrice {
-                    amount
-                    currencyCode
-                  }
-                  image {
-                    url
-                    altText
-                  }
-                  selectedOptions {
-                    name
-                    value
-                  }
-                  product {
-                    id
-                    title
-                    vendor
-                    tags
-                    descriptionHtml
-                    images(first: 5) {
-                      edges {
-                        node {
-                          url
-                          altText
-                        }
-                      }
-                    }
-                    collections(first: 5) {
-                      edges {
-                        node {
-                          title
-                        }
-                      }
-                    }
-                    specifications: metafield(namespace: "custom", key: "specifications2") {
-                      value
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-        cost {
-          subtotalAmount {
-            amount
-            currencyCode
-          }
-          totalAmount {
-            amount
-            currencyCode
+        buyerIdentity {
+          customer {
+            id
+            email
           }
         }
       }

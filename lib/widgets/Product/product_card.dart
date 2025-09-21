@@ -145,6 +145,10 @@ class ProductCard extends StatelessWidget {
                               }
 
                               isAddingToCart.value = true;
+                              if (!cartController.hasExistingCart()) {
+                                await cartController.createCart();
+                              }
+
                               await cartController.addToCart(
                                 cartController.cartId.value,
                                 product.variants[0].id,
@@ -212,6 +216,10 @@ class ProductCard extends StatelessWidget {
                               }
 
                               isAddingToCart.value = true;
+                              if (!cartController.hasExistingCart()) {
+                                await cartController.createCart();
+                              }
+
                               await cartController.addToCart(
                                 cartController.cartId.value,
                                 product.variants[0].id,
