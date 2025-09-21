@@ -344,7 +344,7 @@ class _CartScreenState extends State<CartScreen> {
                                                                 AppColors.darkGrey.withOpacity(0.5),
                                                                 TextAlign.left,
                                                                 overflow: TextOverflow.ellipsis,
-                                                                maxLines: 2,
+                                                                maxLines: 1,
                                                                 decoration: TextDecoration.lineThrough,
                                                               ),
                                                             Row(
@@ -357,7 +357,7 @@ class _CartScreenState extends State<CartScreen> {
                                                                   Colors.black,
                                                                   TextAlign.left,
                                                                   overflow: TextOverflow.ellipsis,
-                                                                  maxLines: 2,
+                                                                  maxLines: 1,
                                                                 ),
 
                                                                 sale(

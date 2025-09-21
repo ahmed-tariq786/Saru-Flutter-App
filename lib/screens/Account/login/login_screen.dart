@@ -390,7 +390,7 @@ class _LoginRegisterScreenState extends State<LoginRegisterScreen> {
                               PersistentNavBarNavigator.pushNewScreen(
                                 context,
                                 screen: RegisterScreen(),
-                                withNavBar: true, // <--- keeps the bottom bar visible
+                                withNavBar: false, // <--- keeps the bottom bar visible
                                 pageTransitionAnimation: PageTransitionAnimation.cupertino,
                               );
                             },

@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 import 'package:saru/generated/l10n.dart';
 import 'package:saru/screens/Account/Addresses/addresses_screen.dart';
+import 'package:saru/screens/Account/Orders/order_screen.dart';
 import 'package:saru/screens/Account/favorites.dart';
 import 'package:saru/screens/Account/login/login_screen.dart';
 import 'package:saru/services/account_service.dart';
@@ -14,7 +15,9 @@ import 'package:saru/widgets/constants/colors.dart';
 import 'package:saru/widgets/constants/my_text.dart';
 
 class AccountScreen extends StatefulWidget {
-  const AccountScreen({super.key});
+  const AccountScreen({super.key, this.tabController});
+
+  final PersistentTabController? tabController;
 
   @override
   State<AccountScreen> createState() => _AccountScreenState();
@@ -90,7 +93,7 @@ class _AccountScreenState extends State<AccountScreen> {
                           PersistentNavBarNavigator.pushNewScreen(
                             context,
                             screen: LoginRegisterScreen(),
-                            withNavBar: true, // <--- keeps the bottom bar visible
+                            withNavBar: false, // <--- keeps the bottom bar visible
                             pageTransitionAnimation: PageTransitionAnimation.cupertino,
                           );
                         },
@@ -125,6 +128,49 @@ class _AccountScreenState extends State<AccountScreen> {
                           PersistentNavBarNavigator.pushNewScreen(
                             context,
                             screen: AddressesScreen(),
+                            withNavBar: true, // <--- keeps the bottom bar visible
+                            pageTransitionAnimation: PageTransitionAnimation.cupertino,
+                          );
+                        },
+                      ),
+
+                    if (accountController.isLoggedIn.value)
+                      Divider(
+                        color: Colors.grey.withOpacity(0.2),
+                        height: 1,
+                      ),
+
+                    //Orders
+                    if (accountController.isLoggedIn.value)
+                      ListTile(
+                        minTileHeight: 0,
+                        contentPadding: const EdgeInsets.symmetric(
+                          horizontal: 12,
+                          vertical: 12,
+                        ),
+                        leading: Icon(
+                          Icons.receipt_long,
+                          color: AppColors.darkGrey.withOpacity(0.9),
+                        ),
+                        title: myText(
+                          S.of(context).orders,
+                          14,
+                          FontWeight.w500,
+                          Colors.black,
+                          TextAlign.start,
+                        ),
+
+                        trailing: Icon(
+                          Icons.arrow_forward_ios,
+                          size: 14,
+                          color: AppColors.darkGrey.withOpacity(0.7),
+                        ),
+                        onTap: () {
+                          PersistentNavBarNavigator.pushNewScreen(
+                            context,
+                            screen: OrderScreen(
+                              tabController: widget.tabController,
+                            ),
                             withNavBar: true, // <--- keeps the bottom bar visible
                             pageTransitionAnimation: PageTransitionAnimation.cupertino,
                           );

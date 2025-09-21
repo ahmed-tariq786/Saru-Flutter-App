@@ -78,10 +78,12 @@ class MessageLookup extends MessageLookupByLibrary {
         MessageLookupByLibrary.simpleMessage(
           "Authentication token is invalid. Please try logging in again.",
         ),
+    "authorized": MessageLookupByLibrary.simpleMessage("Authorized"),
     "availability": MessageLookupByLibrary.simpleMessage("Availability"),
     "bag": MessageLookupByLibrary.simpleMessage("Bag"),
     "bestSeller": MessageLookupByLibrary.simpleMessage("Best Seller"),
     "bestSelling": MessageLookupByLibrary.simpleMessage("Best selling"),
+    "billingAddress": MessageLookupByLibrary.simpleMessage("Billing address"),
     "brands": MessageLookupByLibrary.simpleMessage("Brands"),
     "byRegisteringYouAcceptOur": MessageLookupByLibrary.simpleMessage(
       "By registering, you accept our",
@@ -98,6 +100,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "city": MessageLookupByLibrary.simpleMessage("City"),
     "company": MessageLookupByLibrary.simpleMessage("Company"),
     "congratulations": MessageLookupByLibrary.simpleMessage("Congratulations!"),
+    "contactInformation": MessageLookupByLibrary.simpleMessage(
+      "Contact information",
+    ),
     "country": MessageLookupByLibrary.simpleMessage("Country"),
     "couponCode": MessageLookupByLibrary.simpleMessage("Coupon code"),
     "createYourAccountHere": MessageLookupByLibrary.simpleMessage(
@@ -124,8 +129,11 @@ class MessageLookup extends MessageLookupByLibrary {
     "featured": MessageLookupByLibrary.simpleMessage("Featured"),
     "filterBy": MessageLookupByLibrary.simpleMessage("Filter By"),
     "firstName": MessageLookupByLibrary.simpleMessage("First Name"),
+    "free": MessageLookupByLibrary.simpleMessage("Free"),
+    "fulfilled": MessageLookupByLibrary.simpleMessage("Fulfilled"),
     "highToLow": MessageLookupByLibrary.simpleMessage("High to low"),
     "home": MessageLookupByLibrary.simpleMessage("home"),
+    "inProgress": MessageLookupByLibrary.simpleMessage("In Progress"),
     "inStock": MessageLookupByLibrary.simpleMessage("In Stock"),
     "items": MessageLookupByLibrary.simpleMessage("item(s))"),
     "kdMore": MessageLookupByLibrary.simpleMessage(" more"),
@@ -150,16 +158,30 @@ class MessageLookup extends MessageLookupByLibrary {
     "noAddressesAdded": MessageLookupByLibrary.simpleMessage(
       "No Addresses Added",
     ),
+    "noItemsInThisOrder": MessageLookupByLibrary.simpleMessage(
+      "No items in this order.",
+    ),
+    "noOrdersYet": MessageLookupByLibrary.simpleMessage("No Orders Yet"),
     "noProductsFound": MessageLookupByLibrary.simpleMessage(
       "No products found",
     ),
     "noSuggestionsFound": MessageLookupByLibrary.simpleMessage(
       "No Suggestions Found",
     ),
+    "onHold": MessageLookupByLibrary.simpleMessage("On Hold"),
     "oopsNothingHereYet": MessageLookupByLibrary.simpleMessage(
       "Oops! Nothing here yet.",
     ),
+    "orders": MessageLookupByLibrary.simpleMessage("Orders"),
     "outOfStock": MessageLookupByLibrary.simpleMessage("Out of Stock"),
+    "paid": MessageLookupByLibrary.simpleMessage("Paid"),
+    "partiallyFulfilled": MessageLookupByLibrary.simpleMessage(
+      "Partially Fulfilled",
+    ),
+    "partiallyPaid": MessageLookupByLibrary.simpleMessage("Partially Paid"),
+    "partiallyRefunded": MessageLookupByLibrary.simpleMessage(
+      "Partially Refunded",
+    ),
     "password": MessageLookupByLibrary.simpleMessage("Password"),
     "passwordCannotStartOrEndWithSpacesPleaseRemoveExtra":
         MessageLookupByLibrary.simpleMessage(
@@ -181,6 +203,8 @@ class MessageLookup extends MessageLookupByLibrary {
         MessageLookupByLibrary.simpleMessage(
           "Password must contain at least one uppercase letter, one lowercase letter, and one number",
         ),
+    "payment": MessageLookupByLibrary.simpleMessage("Payment"),
+    "pending": MessageLookupByLibrary.simpleMessage("Pending"),
     "phoneNumber": MessageLookupByLibrary.simpleMessage("Phone Number"),
     "pleaseCreateAnAccountWithYourEmailAddress":
         MessageLookupByLibrary.simpleMessage(
@@ -241,11 +265,14 @@ class MessageLookup extends MessageLookupByLibrary {
       "Recommended Products",
     ),
     "recoverPassword": MessageLookupByLibrary.simpleMessage("Recover password"),
+    "refunded": MessageLookupByLibrary.simpleMessage("Refunded"),
     "register": MessageLookupByLibrary.simpleMessage("Register"),
     "relevance": MessageLookupByLibrary.simpleMessage("Relevance"),
     "remove": MessageLookupByLibrary.simpleMessage("Remove"),
     "reset": MessageLookupByLibrary.simpleMessage("Reset"),
+    "restocked": MessageLookupByLibrary.simpleMessage("Restocked"),
     "save": MessageLookupByLibrary.simpleMessage("Save"),
+    "scheduled": MessageLookupByLibrary.simpleMessage("Scheduled"),
     "search": MessageLookupByLibrary.simpleMessage("Search"),
     "searchBrands": MessageLookupByLibrary.simpleMessage("Search Brands"),
     "searchTheProducts": MessageLookupByLibrary.simpleMessage(
@@ -257,6 +284,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "setAsDefaultAddress": MessageLookupByLibrary.simpleMessage(
       "Set as default address",
     ),
+    "shipping": MessageLookupByLibrary.simpleMessage("Shipping"),
+    "shippingAddress": MessageLookupByLibrary.simpleMessage("Shipping address"),
     "shopNow": MessageLookupByLibrary.simpleMessage("Shop Now"),
     "showing": MessageLookupByLibrary.simpleMessage("Showing"),
     "sortBy": MessageLookupByLibrary.simpleMessage("Sort By"),
@@ -306,10 +335,16 @@ class MessageLookup extends MessageLookupByLibrary {
     "unexpectedErrorOccurred": MessageLookupByLibrary.simpleMessage(
       "Unexpected error occurred.",
     ),
+    "unfulfilled": MessageLookupByLibrary.simpleMessage("Unfulfilled"),
+    "unknown": MessageLookupByLibrary.simpleMessage("Unknown"),
     "urlsAreNotAllowedInThisField": MessageLookupByLibrary.simpleMessage(
       "URLs are not allowed in this field.",
     ),
     "viewAll": MessageLookupByLibrary.simpleMessage("View All"),
+    "viewOrderOnline": MessageLookupByLibrary.simpleMessage(
+      "View Order Online",
+    ),
+    "voided": MessageLookupByLibrary.simpleMessage("Voided"),
     "wantFreeShipping": MessageLookupByLibrary.simpleMessage(
       "Want Free Shipping?",
     ),
@@ -318,6 +353,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "youHaventAddedAnyAddressesYetAddANewAddress":
         MessageLookupByLibrary.simpleMessage(
           "You haven’t added any addresses yet. Add a new address to make checkout faster and easier.",
+        ),
+    "youHaventPlacedAnyOrdersYetStartShoppingToSee":
+        MessageLookupByLibrary.simpleMessage(
+          "You haven\'t placed any orders yet. Start shopping to see your orders here.",
         ),
     "youMayAlsoLike": MessageLookupByLibrary.simpleMessage("YOU MAY ALSO LIKE"),
     "youSaved": MessageLookupByLibrary.simpleMessage("You Saved: "),

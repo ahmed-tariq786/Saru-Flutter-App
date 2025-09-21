@@ -40,7 +40,9 @@ class _MainPageState extends State<MainPage> {
       CartScreen(
         tabController: _controller,
       ),
-      const AccountScreen(),
+      AccountScreen(
+        tabController: _controller,
+      ),
     ];
   }
 

@@ -1208,6 +1208,186 @@ class S {
       args: [],
     );
   }
+
+  /// `Orders`
+  String get orders {
+    return Intl.message('Orders', name: 'orders', desc: '', args: []);
+  }
+
+  /// `No Orders Yet`
+  String get noOrdersYet {
+    return Intl.message(
+      'No Orders Yet',
+      name: 'noOrdersYet',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You haven't placed any orders yet. Start shopping to see your orders here.`
+  String get youHaventPlacedAnyOrdersYetStartShoppingToSee {
+    return Intl.message(
+      'You haven\'t placed any orders yet. Start shopping to see your orders here.',
+      name: 'youHaventPlacedAnyOrdersYetStartShoppingToSee',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Billing address`
+  String get billingAddress {
+    return Intl.message(
+      'Billing address',
+      name: 'billingAddress',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Shipping address`
+  String get shippingAddress {
+    return Intl.message(
+      'Shipping address',
+      name: 'shippingAddress',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Contact information`
+  String get contactInformation {
+    return Intl.message(
+      'Contact information',
+      name: 'contactInformation',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Payment`
+  String get payment {
+    return Intl.message('Payment', name: 'payment', desc: '', args: []);
+  }
+
+  /// `Free`
+  String get free {
+    return Intl.message('Free', name: 'free', desc: '', args: []);
+  }
+
+  /// `Shipping`
+  String get shipping {
+    return Intl.message('Shipping', name: 'shipping', desc: '', args: []);
+  }
+
+  /// `No items in this order.`
+  String get noItemsInThisOrder {
+    return Intl.message(
+      'No items in this order.',
+      name: 'noItemsInThisOrder',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `View Order Online`
+  String get viewOrderOnline {
+    return Intl.message(
+      'View Order Online',
+      name: 'viewOrderOnline',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Refunded`
+  String get refunded {
+    return Intl.message('Refunded', name: 'refunded', desc: '', args: []);
+  }
+
+  /// `Partially Refunded`
+  String get partiallyRefunded {
+    return Intl.message(
+      'Partially Refunded',
+      name: 'partiallyRefunded',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Voided`
+  String get voided {
+    return Intl.message('Voided', name: 'voided', desc: '', args: []);
+  }
+
+  /// `Authorized`
+  String get authorized {
+    return Intl.message('Authorized', name: 'authorized', desc: '', args: []);
+  }
+
+  /// `Partially Paid`
+  String get partiallyPaid {
+    return Intl.message(
+      'Partially Paid',
+      name: 'partiallyPaid',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Pending`
+  String get pending {
+    return Intl.message('Pending', name: 'pending', desc: '', args: []);
+  }
+
+  /// `Fulfilled`
+  String get fulfilled {
+    return Intl.message('Fulfilled', name: 'fulfilled', desc: '', args: []);
+  }
+
+  /// `Partially Fulfilled`
+  String get partiallyFulfilled {
+    return Intl.message(
+      'Partially Fulfilled',
+      name: 'partiallyFulfilled',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `In Progress`
+  String get inProgress {
+    return Intl.message('In Progress', name: 'inProgress', desc: '', args: []);
+  }
+
+  /// `On Hold`
+  String get onHold {
+    return Intl.message('On Hold', name: 'onHold', desc: '', args: []);
+  }
+
+  /// `Unfulfilled`
+  String get unfulfilled {
+    return Intl.message('Unfulfilled', name: 'unfulfilled', desc: '', args: []);
+  }
+
+  /// `Restocked`
+  String get restocked {
+    return Intl.message('Restocked', name: 'restocked', desc: '', args: []);
+  }
+
+  /// `Scheduled`
+  String get scheduled {
+    return Intl.message('Scheduled', name: 'scheduled', desc: '', args: []);
+  }
+
+  /// `Unknown`
+  String get unknown {
+    return Intl.message('Unknown', name: 'unknown', desc: '', args: []);
+  }
+
+  /// `Paid`
+  String get paid {
+    return Intl.message('Paid', name: 'paid', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

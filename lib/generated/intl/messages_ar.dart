@@ -80,10 +80,12 @@ class MessageLookup extends MessageLookupByLibrary {
         MessageLookupByLibrary.simpleMessage(
           "رمز المصادقة غير صالح. يرجى محاولة تسجيل الدخول مرة أخرى.",
         ),
+    "authorized": MessageLookupByLibrary.simpleMessage("مصرح به"),
     "availability": MessageLookupByLibrary.simpleMessage("التوفر"),
     "bag": MessageLookupByLibrary.simpleMessage("شنطة"),
     "bestSeller": MessageLookupByLibrary.simpleMessage("الأكثر مبيعًا"),
     "bestSelling": MessageLookupByLibrary.simpleMessage("الأكثر مبيعاً"),
+    "billingAddress": MessageLookupByLibrary.simpleMessage("عنوان الفواتير"),
     "brands": MessageLookupByLibrary.simpleMessage("العلامات التجارية"),
     "byRegisteringYouAcceptOur": MessageLookupByLibrary.simpleMessage(
       "عن طريق التسجيل ، أنت تقبل",
@@ -100,6 +102,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "city": MessageLookupByLibrary.simpleMessage("مدينة"),
     "company": MessageLookupByLibrary.simpleMessage("شركة"),
     "congratulations": MessageLookupByLibrary.simpleMessage("مبروك!"),
+    "contactInformation": MessageLookupByLibrary.simpleMessage(
+      "معلومات الاتصال",
+    ),
     "country": MessageLookupByLibrary.simpleMessage("دولة"),
     "couponCode": MessageLookupByLibrary.simpleMessage("رمز القسيمة"),
     "createYourAccountHere": MessageLookupByLibrary.simpleMessage(
@@ -126,8 +131,11 @@ class MessageLookup extends MessageLookupByLibrary {
     "featured": MessageLookupByLibrary.simpleMessage("مميز"),
     "filterBy": MessageLookupByLibrary.simpleMessage("تصفية بواسطة"),
     "firstName": MessageLookupByLibrary.simpleMessage("الاسم الأول"),
+    "free": MessageLookupByLibrary.simpleMessage("حر"),
+    "fulfilled": MessageLookupByLibrary.simpleMessage("التحق"),
     "highToLow": MessageLookupByLibrary.simpleMessage("من الأعلى للأقل"),
     "home": MessageLookupByLibrary.simpleMessage("بيت"),
+    "inProgress": MessageLookupByLibrary.simpleMessage("في تَقَدم"),
     "inStock": MessageLookupByLibrary.simpleMessage("متوفر"),
     "items": MessageLookupByLibrary.simpleMessage("أغراض))"),
     "kdMore": MessageLookupByLibrary.simpleMessage("أكثر"),
@@ -156,16 +164,26 @@ class MessageLookup extends MessageLookupByLibrary {
     "noAddressesAdded": MessageLookupByLibrary.simpleMessage(
       "لم تتم إضافة عناوين",
     ),
+    "noItemsInThisOrder": MessageLookupByLibrary.simpleMessage(
+      "لا توجد عناصر في هذا الترتيب.",
+    ),
+    "noOrdersYet": MessageLookupByLibrary.simpleMessage("لا أوامر حتى الآن"),
     "noProductsFound": MessageLookupByLibrary.simpleMessage(
       "لم يتم العثور على منتجات",
     ),
     "noSuggestionsFound": MessageLookupByLibrary.simpleMessage(
       "لم يتم العثور على اقتراحات",
     ),
+    "onHold": MessageLookupByLibrary.simpleMessage("في الانتظار"),
     "oopsNothingHereYet": MessageLookupByLibrary.simpleMessage(
       "أُووبس! لا شيء هنا بعد.",
     ),
+    "orders": MessageLookupByLibrary.simpleMessage("طلبات"),
     "outOfStock": MessageLookupByLibrary.simpleMessage("إنتهى من المخزن"),
+    "paid": MessageLookupByLibrary.simpleMessage("مدفوع"),
+    "partiallyFulfilled": MessageLookupByLibrary.simpleMessage("تحققت جزئيا"),
+    "partiallyPaid": MessageLookupByLibrary.simpleMessage("دفع جزئيا"),
+    "partiallyRefunded": MessageLookupByLibrary.simpleMessage("رد جزئي"),
     "password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
     "passwordCannotStartOrEndWithSpacesPleaseRemoveExtra":
         MessageLookupByLibrary.simpleMessage(
@@ -187,6 +205,8 @@ class MessageLookup extends MessageLookupByLibrary {
         MessageLookupByLibrary.simpleMessage(
           "يجب أن تحتوي كلمة المرور على حرف كبير واحد على الأقل ، وحرف صغير واحد ، ورقم واحد",
         ),
+    "payment": MessageLookupByLibrary.simpleMessage("قسط"),
+    "pending": MessageLookupByLibrary.simpleMessage("قيد الانتظار"),
     "phoneNumber": MessageLookupByLibrary.simpleMessage("رقم التليفون"),
     "pleaseCreateAnAccountWithYourEmailAddress":
         MessageLookupByLibrary.simpleMessage(
@@ -249,11 +269,14 @@ class MessageLookup extends MessageLookupByLibrary {
     "recoverPassword": MessageLookupByLibrary.simpleMessage(
       "استعادة كلمة المرور",
     ),
+    "refunded": MessageLookupByLibrary.simpleMessage("رد"),
     "register": MessageLookupByLibrary.simpleMessage("يسجل"),
     "relevance": MessageLookupByLibrary.simpleMessage("الأهمية"),
     "remove": MessageLookupByLibrary.simpleMessage("يزيل"),
     "reset": MessageLookupByLibrary.simpleMessage("إعادة ضبط"),
+    "restocked": MessageLookupByLibrary.simpleMessage("أعيد تخزينها"),
     "save": MessageLookupByLibrary.simpleMessage("يحفظ"),
+    "scheduled": MessageLookupByLibrary.simpleMessage("من المقرر"),
     "search": MessageLookupByLibrary.simpleMessage("يبحث"),
     "searchBrands": MessageLookupByLibrary.simpleMessage(
       "البحث العلامات التجارية",
@@ -267,6 +290,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "setAsDefaultAddress": MessageLookupByLibrary.simpleMessage(
       "تعيين كعنوان افتراضي",
     ),
+    "shipping": MessageLookupByLibrary.simpleMessage("شحن"),
+    "shippingAddress": MessageLookupByLibrary.simpleMessage("عنوان الشحن"),
     "shopNow": MessageLookupByLibrary.simpleMessage("تسوق الآن"),
     "showing": MessageLookupByLibrary.simpleMessage("تظهر"),
     "sortBy": MessageLookupByLibrary.simpleMessage("ترتيب حسب"),
@@ -316,16 +341,26 @@ class MessageLookup extends MessageLookupByLibrary {
     "unexpectedErrorOccurred": MessageLookupByLibrary.simpleMessage(
       "حدث خطأ غير متوقع.",
     ),
+    "unfulfilled": MessageLookupByLibrary.simpleMessage("لم يتحقق"),
+    "unknown": MessageLookupByLibrary.simpleMessage("مجهول"),
     "urlsAreNotAllowedInThisField": MessageLookupByLibrary.simpleMessage(
       "URL غير مسموح به في هذا المجال.",
     ),
     "viewAll": MessageLookupByLibrary.simpleMessage("عرض الكل"),
+    "viewOrderOnline": MessageLookupByLibrary.simpleMessage(
+      "عرض الطلب عبر الإنترنت",
+    ),
+    "voided": MessageLookupByLibrary.simpleMessage("أبطأ"),
     "wantFreeShipping": MessageLookupByLibrary.simpleMessage("تريد شحن مجاني؟"),
     "yesDelete": MessageLookupByLibrary.simpleMessage("نعم ، حذف"),
     "yesLogout": MessageLookupByLibrary.simpleMessage("نعم ، تسجيل الدخول"),
     "youHaventAddedAnyAddressesYetAddANewAddress":
         MessageLookupByLibrary.simpleMessage(
           "لم تضيف أي عناوين بعد. أضف عنوانًا جديدًا لجعل الخروج أسرع وأسهل.",
+        ),
+    "youHaventPlacedAnyOrdersYetStartShoppingToSee":
+        MessageLookupByLibrary.simpleMessage(
+          "لم تضع أي أوامر بعد. ابدأ بالتسوق لرؤية طلباتك هنا.",
         ),
     "youMayAlsoLike": MessageLookupByLibrary.simpleMessage("قد تعجبك أيضًا"),
     "youSaved": MessageLookupByLibrary.simpleMessage("لقد أنقذت:"),
