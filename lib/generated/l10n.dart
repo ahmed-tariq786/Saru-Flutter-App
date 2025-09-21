@@ -1498,6 +1498,26 @@ class S {
       args: [],
     );
   }
+
+  /// `Province`
+  String get province {
+    return Intl.message('Province', name: 'province', desc: '', args: []);
+  }
+
+  /// `Governorate`
+  String get governorate {
+    return Intl.message('Governorate', name: 'governorate', desc: '', args: []);
+  }
+
+  /// `Search country`
+  String get searchCountry {
+    return Intl.message(
+      'Search country',
+      name: 'searchCountry',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

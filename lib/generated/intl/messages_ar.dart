@@ -49,7 +49,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "هل لديك بالفعل حساب؟",
     ),
     "anErrorOccurredPleaseTryAgain": MessageLookupByLibrary.simpleMessage(
-      "An error occurred, please try again.",
+      "حدث خطأ ، يرجى المحاولة مرة أخرى.",
     ),
     "anErrorOccurredWhileDeletingTheAddressPleaseTryAgain":
         MessageLookupByLibrary.simpleMessage(
@@ -159,6 +159,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "firstName": MessageLookupByLibrary.simpleMessage("الاسم الأول"),
     "free": MessageLookupByLibrary.simpleMessage("حر"),
     "fulfilled": MessageLookupByLibrary.simpleMessage("التحق"),
+    "governorate": MessageLookupByLibrary.simpleMessage("محافظة"),
     "highToLow": MessageLookupByLibrary.simpleMessage("من الأعلى للأقل"),
     "home": MessageLookupByLibrary.simpleMessage("بيت"),
     "inProgress": MessageLookupByLibrary.simpleMessage("في تَقَدم"),
@@ -172,7 +173,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "language": MessageLookupByLibrary.simpleMessage("لغة"),
     "lastName": MessageLookupByLibrary.simpleMessage("اسم العائلة"),
     "loggedInSuccessfully": MessageLookupByLibrary.simpleMessage(
-      "Logged in successfully",
+      "تسجيل الدخول بنجاح",
     ),
     "login": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
     "loginHere": MessageLookupByLibrary.simpleMessage("تسجيل الدخول هنا"),
@@ -296,6 +297,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "profileUpdatedSuccessfully": MessageLookupByLibrary.simpleMessage(
       "تم تحديث ملف التعريف بنجاح",
     ),
+    "province": MessageLookupByLibrary.simpleMessage("مقاطعة"),
     "recentlySearched": MessageLookupByLibrary.simpleMessage(
       "تم تفتيشه مؤخرًا",
     ),
@@ -317,6 +319,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "searchBrands": MessageLookupByLibrary.simpleMessage(
       "البحث العلامات التجارية",
     ),
+    "searchCountry": MessageLookupByLibrary.simpleMessage("دولة البحث"),
     "searchTheProducts": MessageLookupByLibrary.simpleMessage(
       "ابحث في المنتجات",
     ),

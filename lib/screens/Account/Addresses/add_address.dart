@@ -1,4 +1,7 @@
+import 'package:country_picker/country_picker.dart';
+import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 import 'package:saru/generated/l10n.dart';
@@ -32,6 +35,21 @@ class _AddAddressScreenState extends State<AddAddressScreen> {
   TextEditingController postalCodeController = TextEditingController();
   TextEditingController phoneController = TextEditingController();
 
+  // 1. Add this to your state class:
+  final List<String> governorates = [
+    "Al Asimah",
+    "Hawalli",
+
+    "Farwaniya",
+
+    "Al Ahmadi",
+
+    "Mubarak Al-Kabeer",
+
+    "Al Jahra",
+    // ...add all you need
+  ];
+  String? selectedGovernorate;
   RxBool isDefaultAddress = false.obs;
 
   RxBool isLoading = false.obs;
@@ -138,6 +156,100 @@ class _AddAddressScreenState extends State<AddAddressScreen> {
                     S.of(context).apartmentSuiteEtc,
                   ),
 
+                  //governorate
+                  DropdownButtonHideUnderline(
+                    child: DropdownButtonFormField2<String>(
+                      value: selectedGovernorate,
+                      dropdownStyleData: DropdownStyleData(
+                        maxHeight: 250,
+                        decoration: BoxDecoration(
+                          color: AppColors.white,
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                      ),
+                      style: textstyle(
+                        13.sp,
+                        AppColors.black,
+                        FontWeight.w400,
+                      ),
+
+                      decoration: InputDecoration(
+                        labelText: S.of(context).governorate,
+
+                        labelStyle: textstyle(
+                          13.sp,
+                          AppColors.darkGrey.withOpacity(1),
+                          FontWeight.w500,
+                        ),
+
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(width: 1, color: AppColors.darkGrey.withOpacity(0.2)),
+
+                          borderRadius: BorderRadius.circular(
+                            12,
+                          ),
+                        ),
+
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(width: 1, color: AppColors.darkGrey.withOpacity(0.2)),
+
+                          borderRadius: BorderRadius.circular(
+                            12,
+                          ),
+                        ),
+                        disabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(width: 1, color: AppColors.darkGrey.withOpacity(0.2)),
+
+                          borderRadius: BorderRadius.circular(
+                            12,
+                          ),
+                        ),
+                        border: OutlineInputBorder(
+                          borderSide: BorderSide(width: 1, color: AppColors.darkGrey.withOpacity(0.2)),
+
+                          borderRadius: BorderRadius.circular(
+                            12,
+                          ),
+                        ),
+                        focusedErrorBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(12),
+                          borderSide: BorderSide(
+                            width: 1,
+                            color: const Color.fromARGB(255, 198, 21, 9),
+                          ),
+                        ),
+                        errorBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(12),
+                          borderSide: BorderSide(
+                            width: 1,
+                            color: const Color.fromARGB(255, 198, 21, 9),
+                          ),
+                        ),
+                        filled: true,
+                        fillColor: AppColors.white,
+                      ),
+
+                      items: governorates.map((gov) {
+                        return DropdownMenuItem(
+                          value: gov,
+                          child: Text(gov),
+                        );
+                      }).toList(),
+                      onChanged: (value) {
+                        setState(() {
+                          selectedGovernorate = value;
+                        });
+                      },
+
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Please select a governorate';
+                        }
+                        return null;
+                      },
+                    ),
+                  ),
+
                   // city, country, postal code, phone
                   textField(
                     context,
@@ -153,17 +265,98 @@ class _AddAddressScreenState extends State<AddAddressScreen> {
                   ),
 
                   // country
-                  textField(
-                    context,
-                    countryController,
+                  GestureDetector(
+                    onTap: () {
+                      showCountryPicker(
+                        context: context,
+                        showPhoneCode: false, // optional. Shows phone code before the country name.
+                        favorite: ['KW', 'SA', 'AE'],
+                        useSafeArea: true,
+                        countryListTheme: CountryListThemeData(
+                          borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(16),
+                            topRight: Radius.circular(16),
+                          ),
+                          inputDecoration: InputDecoration(
+                            labelText: S.of(context).search,
+                            labelStyle: textstyle(
+                              13,
+                              AppColors.darkGrey.withOpacity(1),
+                              FontWeight.w500,
+                            ),
+                            hintText: S.of(context).searchCountry,
+                            hintStyle: textstyle(
+                              13,
+                              AppColors.darkGrey.withOpacity(0.5),
+                              FontWeight.w500,
+                            ),
+                            prefixIcon: const Icon(Icons.search),
 
-                    (value) {
-                      if (value == null || value.isEmpty) {
-                        return S.of(context).pleaseEnterYourCountry;
-                      }
-                      return null;
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(width: 1, color: AppColors.darkGrey.withOpacity(0.2)),
+
+                              borderRadius: BorderRadius.circular(
+                                12,
+                              ),
+                            ),
+
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(width: 1, color: AppColors.darkGrey.withOpacity(0.2)),
+
+                              borderRadius: BorderRadius.circular(
+                                12,
+                              ),
+                            ),
+                            disabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(width: 1, color: AppColors.darkGrey.withOpacity(0.2)),
+
+                              borderRadius: BorderRadius.circular(
+                                12,
+                              ),
+                            ),
+                            border: OutlineInputBorder(
+                              borderSide: BorderSide(width: 1, color: AppColors.darkGrey.withOpacity(0.2)),
+
+                              borderRadius: BorderRadius.circular(
+                                12,
+                              ),
+                            ),
+                          ),
+                          backgroundColor: AppColors.white,
+                          textStyle: textstyle(
+                            14,
+                            AppColors.black,
+                            FontWeight.w400,
+                          ),
+
+                          bottomSheetHeight: Get.height * 0.7,
+                        ),
+
+                        onClosed: () {
+                          FocusScopeNode currentFocus = FocusScope.of(context);
+                          if (!currentFocus.hasPrimaryFocus) {
+                            currentFocus.unfocus();
+                          }
+                        },
+
+                        onSelect: (Country country) {
+                          countryController.text = country.name;
+                        },
+                      );
                     },
-                    S.of(context).country,
+                    child: textField(
+                      context,
+                      countryController,
+
+                      (value) {
+                        if (value == null || value.isEmpty) {
+                          return S.of(context).pleaseEnterYourCountry;
+                        }
+                        return null;
+                      },
+                      S.of(context).country,
+                      enabled: false,
+                    ),
                   ),
 
                   // postal code
@@ -233,7 +426,7 @@ class _AddAddressScreenState extends State<AddAddressScreen> {
                             lastName: lastNameController.text,
                             address1: addressController.text,
                             city: cityController.text,
-
+                            province: selectedGovernorate ?? "",
                             country: countryController.text,
 
                             zip: postalCodeController.text,
@@ -288,7 +481,13 @@ class _AddAddressScreenState extends State<AddAddressScreen> {
     );
   }
 
-  Container textField(BuildContext context, TextEditingController controller, Function validator, String hintText) {
+  Container textField(
+    BuildContext context,
+    TextEditingController controller,
+    Function validator,
+    String hintText, {
+    bool enabled = true,
+  }) {
     return Container(
       decoration: BoxDecoration(
         boxShadow: [
@@ -301,6 +500,8 @@ class _AddAddressScreenState extends State<AddAddressScreen> {
       ),
       child: TextFormField(
         controller: controller,
+
+        enabled: enabled,
 
         validator: (value) => validator(value),
         style: textstyle(
@@ -367,7 +568,7 @@ class _AddAddressScreenState extends State<AddAddressScreen> {
 
           hintText: hintText,
           hintStyle: textstyle(
-            15,
+            13,
             AppColors.darkGrey.withOpacity(0.5),
             FontWeight.w500,
           ),

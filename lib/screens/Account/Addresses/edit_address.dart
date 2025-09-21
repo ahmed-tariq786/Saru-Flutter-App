@@ -1,4 +1,6 @@
+import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 import 'package:saru/generated/l10n.dart';
@@ -26,6 +28,7 @@ class EditAddressScreen extends StatefulWidget {
     required this.postalCode,
     required this.phone,
     required this.id,
+    required this.governorate,
   });
 
   final String id;
@@ -39,6 +42,7 @@ class EditAddressScreen extends StatefulWidget {
   final String country;
   final String postalCode;
   final String phone;
+  final String governorate;
 
   @override
   State<EditAddressScreen> createState() => _EditAddressScreenState();
@@ -57,6 +61,22 @@ class _EditAddressScreenState extends State<EditAddressScreen> {
   TextEditingController postalCodeController = TextEditingController();
   TextEditingController phoneController = TextEditingController();
 
+  // 1. Add this to your state class:
+  final List<String> governorates = [
+    "Al Asimah",
+    "Hawalli",
+
+    "Farwaniya",
+
+    "Al Ahmadi",
+
+    "Mubarak Al-Kabeer",
+
+    "Al Jahra",
+    // ...add all you need
+  ];
+  String? selectedGovernorate;
+
   @override
   void initState() {
     firstNameController.text = widget.firstName;
@@ -69,6 +89,8 @@ class _EditAddressScreenState extends State<EditAddressScreen> {
     countryController.text = widget.country;
     postalCodeController.text = widget.postalCode;
     phoneController.text = widget.phone;
+
+    selectedGovernorate = widget.governorate.isNotEmpty ? widget.governorate : null;
 
     super.initState();
   }
@@ -180,6 +202,100 @@ class _EditAddressScreenState extends State<EditAddressScreen> {
                     S.of(context).apartmentSuiteEtc,
                   ),
 
+                  //governorate
+                  DropdownButtonHideUnderline(
+                    child: DropdownButtonFormField2<String>(
+                      value: selectedGovernorate,
+                      dropdownStyleData: DropdownStyleData(
+                        maxHeight: 250,
+                        decoration: BoxDecoration(
+                          color: AppColors.white,
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                      ),
+                      style: textstyle(
+                        13.sp,
+                        AppColors.black,
+                        FontWeight.w400,
+                      ),
+
+                      decoration: InputDecoration(
+                        labelText: S.of(context).governorate,
+
+                        labelStyle: textstyle(
+                          13.sp,
+                          AppColors.darkGrey.withOpacity(1),
+                          FontWeight.w500,
+                        ),
+
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(width: 1, color: AppColors.darkGrey.withOpacity(0.2)),
+
+                          borderRadius: BorderRadius.circular(
+                            12,
+                          ),
+                        ),
+
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(width: 1, color: AppColors.darkGrey.withOpacity(0.2)),
+
+                          borderRadius: BorderRadius.circular(
+                            12,
+                          ),
+                        ),
+                        disabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(width: 1, color: AppColors.darkGrey.withOpacity(0.2)),
+
+                          borderRadius: BorderRadius.circular(
+                            12,
+                          ),
+                        ),
+                        border: OutlineInputBorder(
+                          borderSide: BorderSide(width: 1, color: AppColors.darkGrey.withOpacity(0.2)),
+
+                          borderRadius: BorderRadius.circular(
+                            12,
+                          ),
+                        ),
+                        focusedErrorBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(12),
+                          borderSide: BorderSide(
+                            width: 1,
+                            color: const Color.fromARGB(255, 198, 21, 9),
+                          ),
+                        ),
+                        errorBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(12),
+                          borderSide: BorderSide(
+                            width: 1,
+                            color: const Color.fromARGB(255, 198, 21, 9),
+                          ),
+                        ),
+                        filled: true,
+                        fillColor: AppColors.white,
+                      ),
+
+                      items: governorates.map((gov) {
+                        return DropdownMenuItem(
+                          value: gov,
+                          child: Text(gov),
+                        );
+                      }).toList(),
+                      onChanged: (value) {
+                        setState(() {
+                          selectedGovernorate = value;
+                        });
+                      },
+
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Please select a governorate';
+                        }
+                        return null;
+                      },
+                    ),
+                  ),
+
                   // city, country, postal code, phone
                   textField(
                     context,
@@ -236,6 +352,101 @@ class _EditAddressScreenState extends State<EditAddressScreen> {
                     S.of(context).phoneNumber,
                   ),
 
+                  // CountryCodeTextField(
+                  //   initialCountryCode: "KW",
+                  //   controller: phoneController,
+                  //   countryCodeTextStyle: textstyle(
+                  //     14.sp,
+                  //     AppColors.black,
+                  //     FontWeight.w400,
+                  //   ),
+                  //   countryNameStyle: textstyle(
+                  //     14.sp,
+                  //     AppColors.black,
+                  //     FontWeight.w400,
+                  //   ),
+                  //   countryCodeStyle: textstyle(
+                  //     14.sp,
+                  //     AppColors.black,
+                  //     FontWeight.w400,
+                  //   ),
+
+                  //   initialValue: "+965",
+                  //   keyboardType: TextInputType.number,
+                  //   style: textstyle(
+                  //     14.sp,
+                  //     AppColors.black,
+                  //     FontWeight.w400,
+                  //   ),
+                  //   decoration: InputDecoration(
+                  //     fillColor: AppColors.white,
+                  //     filled: true,
+
+                  //     focusedBorder: OutlineInputBorder(
+                  //       borderSide: BorderSide(width: 1, color: AppColors.darkGrey.withOpacity(0.2)),
+
+                  //       borderRadius: BorderRadius.circular(
+                  //         12,
+                  //       ),
+                  //     ),
+
+                  //     enabledBorder: OutlineInputBorder(
+                  //       borderSide: BorderSide(width: 1, color: AppColors.darkGrey.withOpacity(0.2)),
+
+                  //       borderRadius: BorderRadius.circular(
+                  //         12,
+                  //       ),
+                  //     ),
+                  //     disabledBorder: OutlineInputBorder(
+                  //       borderSide: BorderSide(width: 1, color: AppColors.darkGrey.withOpacity(0.2)),
+
+                  //       borderRadius: BorderRadius.circular(
+                  //         12,
+                  //       ),
+                  //     ),
+                  //     border: OutlineInputBorder(
+                  //       borderSide: BorderSide(width: 1, color: AppColors.darkGrey.withOpacity(0.2)),
+
+                  //       borderRadius: BorderRadius.circular(
+                  //         12,
+                  //       ),
+                  //     ),
+                  //     focusedErrorBorder: OutlineInputBorder(
+                  //       borderRadius: BorderRadius.circular(12),
+                  //       borderSide: BorderSide(
+                  //         width: 1,
+                  //         color: const Color.fromARGB(255, 198, 21, 9),
+                  //       ),
+                  //     ),
+                  //     errorBorder: OutlineInputBorder(
+                  //       borderRadius: BorderRadius.circular(12),
+                  //       borderSide: BorderSide(
+                  //         width: 1,
+                  //         color: const Color.fromARGB(255, 198, 21, 9),
+                  //       ),
+                  //     ),
+
+                  //     labelText: S.of(context).phoneNumber,
+                  //     labelStyle: textstyle(
+                  //       13,
+                  //       AppColors.darkGrey.withOpacity(1),
+                  //       FontWeight.w500,
+                  //     ),
+                  //     hintText: S.of(context).phoneNumber,
+                  //     hintStyle: textstyle(
+                  //       15,
+                  //       AppColors.darkGrey.withOpacity(0.5),
+                  //       FontWeight.w500,
+                  //     ),
+                  //   ),
+                  //   validator: (value) {
+                  //     if (value == null) {
+                  //       return 'Veuillez vérifier votre numéro';
+                  //     }
+                  //     return null;
+                  //   },
+                  // ),
+
                   // set as default address
                   Row(
                     spacing: 12,
@@ -282,6 +493,7 @@ class _EditAddressScreenState extends State<EditAddressScreen> {
                             "country": countryController.text,
                             "zip": postalCodeController.text,
                             "phone": phoneController.text,
+                            "province": selectedGovernorate ?? "",
                             if (companyController.text.isNotEmpty) "company": companyController.text,
                             if (apartmentController.text.isNotEmpty) "address2": apartmentController.text,
                           };

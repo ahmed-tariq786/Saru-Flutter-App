@@ -10,12 +10,13 @@ String customerAddressCreateMutation({String locale = 'EN'}) {
         address1
         address2
         city
-        province
-        provinceCode
+ 
         country
-        countryCode
+        countryCodeV2
         zip
         phone
+        province
+ 
       }
       customerUserErrors {
         code
@@ -34,19 +35,20 @@ String customerDefaultAddressUpdateMutation({String locale = 'EN'}) {
       customer {
         id
         defaultAddress {
-          id
-          firstName
-          lastName
-          company
-          address1
-          address2
-          city
-          province
-          provinceCode
-          country
-          countryCode
-          zip
-          phone
+        id
+        firstName
+        lastName
+        company
+        address1
+        address2
+        city
+ 
+        country
+        countryCodeV2
+        zip
+        phone
+ 
+ 
         }
       }
       customerUserErrors {
@@ -75,9 +77,13 @@ String customerAddressesQuery({String locale = 'EN', int first = 10, String? aft
             address1
             address2
             city
+            province
             country
+            countryCodeV2
             zip
             phone
+ 
+ 
           }
         }
         pageInfo {
@@ -126,10 +132,12 @@ String customerAddressUpdateMutation({String locale = 'EN'}) {
         address1
         address2
         city
-        province
+ 
         country
+        countryCodeV2
         zip
         phone
+ 
       }
       customerUserErrors {
         code

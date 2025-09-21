@@ -21,6 +21,7 @@ class AddressController extends GetxController {
     required String zip,
     required String token,
     String? phone,
+    String? governorate,
     String? company, // optional
     String? address2, // optional
     String? province, // optional

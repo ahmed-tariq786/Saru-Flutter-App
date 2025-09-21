@@ -60,6 +60,8 @@ class CustomerAddress {
   final String zip;
   final String? phone;
 
+  final String? province;
+
   CustomerAddress({
     required this.id,
     required this.firstName,
@@ -71,6 +73,8 @@ class CustomerAddress {
     required this.country,
     required this.zip,
     this.phone,
+
+    this.province,
   });
 
   factory CustomerAddress.fromJson(Map<String, dynamic> json) {
@@ -85,6 +89,8 @@ class CustomerAddress {
       country: json['country'] as String? ?? '',
       zip: json['zip'] as String? ?? '',
       phone: json['phone'] as String?,
+
+      province: json['province'] as String?,
     );
   }
 
@@ -100,6 +106,8 @@ class CustomerAddress {
       'country': country,
       'zip': zip,
       'phone': phone,
+
+      'province': province,
     };
   }
 

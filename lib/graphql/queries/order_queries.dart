@@ -48,6 +48,7 @@ String customerOrdersQuery({String locale = 'EN', int first = 10, String? afterC
               lastName
               address1
               address2
+              province
               phone
               city
               country
@@ -58,6 +59,7 @@ String customerOrdersQuery({String locale = 'EN', int first = 10, String? afterC
               lastName
               address1
               address2
+              province
               phone
               city
               country

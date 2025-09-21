@@ -325,6 +325,7 @@ class _AddressesScreenState extends State<AddressesScreen> {
                                 postalCode: element.zip,
                                 phone: element.phone ?? "",
                                 id: element.id,
+                                governorate: element.province ?? "",
                               ),
                               withNavBar: false, // <--- keeps the bottom bar visible
                               pageTransitionAnimation: PageTransitionAnimation.cupertino,
@@ -359,6 +360,7 @@ class _AddressesScreenState extends State<AddressesScreen> {
                     element.address2,
                     element.city,
                     element.zip,
+                    element.province,
                     element.country,
                   ].where((part) => part != null && part.toString().isNotEmpty).join(", "),
                   13,

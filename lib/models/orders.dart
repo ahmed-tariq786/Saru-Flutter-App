@@ -233,6 +233,7 @@ class Address {
   final String? zip;
   final String? address2;
   final String? phone;
+  final String? province;
 
   Address({
     this.firstName,
@@ -243,6 +244,7 @@ class Address {
     this.zip,
     this.address2,
     this.phone,
+    this.province,
   });
 
   factory Address.fromJson(Map<String, dynamic> json) {
@@ -255,6 +257,7 @@ class Address {
       city: json['city'],
       country: json['country'],
       zip: json['zip'],
+      province: json['province'],
     );
   }
 }

@@ -157,6 +157,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "firstName": MessageLookupByLibrary.simpleMessage("First Name"),
     "free": MessageLookupByLibrary.simpleMessage("Free"),
     "fulfilled": MessageLookupByLibrary.simpleMessage("Fulfilled"),
+    "governorate": MessageLookupByLibrary.simpleMessage("Governorate"),
     "highToLow": MessageLookupByLibrary.simpleMessage("High to low"),
     "home": MessageLookupByLibrary.simpleMessage("home"),
     "inProgress": MessageLookupByLibrary.simpleMessage("In Progress"),
@@ -294,6 +295,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "profileUpdatedSuccessfully": MessageLookupByLibrary.simpleMessage(
       "Profile updated successfully",
     ),
+    "province": MessageLookupByLibrary.simpleMessage("Province"),
     "recentlySearched": MessageLookupByLibrary.simpleMessage(
       "Recently Searched",
     ),
@@ -311,6 +313,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "scheduled": MessageLookupByLibrary.simpleMessage("Scheduled"),
     "search": MessageLookupByLibrary.simpleMessage("Search"),
     "searchBrands": MessageLookupByLibrary.simpleMessage("Search Brands"),
+    "searchCountry": MessageLookupByLibrary.simpleMessage("Search country"),
     "searchTheProducts": MessageLookupByLibrary.simpleMessage(
       "Search the products",
     ),

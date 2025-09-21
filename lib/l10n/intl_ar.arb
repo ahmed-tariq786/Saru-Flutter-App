@@ -181,6 +181,9 @@
   "invalidEmailOrPasswordPleaseCheckYourCredentialsAndTry": "بريد إلكتروني غير صالح أو كلمة مرور. يرجى التحقق من بيانات الاعتماد الخاصة بك والمحاولة مرة أخرى.",
   "failedToLogInPleaseTryAgain": "فشل في تسجيل الدخول. يرجى المحاولة مرة أخرى.",
   "tooManyLoginAttemptsPleaseWaitAFewMinutesBefore": "الكثير من محاولات تسجيل الدخول. يرجى الانتظار بضع دقائق قبل المحاولة مرة أخرى.",
-  "loggedInSuccessfully": "Logged in successfully",
-  "anErrorOccurredPleaseTryAgain": "An error occurred, please try again."
+  "loggedInSuccessfully": "تسجيل الدخول بنجاح",
+  "anErrorOccurredPleaseTryAgain": "حدث خطأ ، يرجى المحاولة مرة أخرى.",
+  "province": "مقاطعة",
+  "governorate": "محافظة",
+  "searchCountry": "دولة البحث"
 }

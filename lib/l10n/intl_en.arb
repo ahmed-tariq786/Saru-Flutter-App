@@ -182,5 +182,8 @@
   "failedToLogInPleaseTryAgain": "Failed to log in. Please try again.",
   "tooManyLoginAttemptsPleaseWaitAFewMinutesBefore": "Too many login attempts. Please wait a few minutes before trying again.",
   "loggedInSuccessfully": "Logged in successfully",
-  "anErrorOccurredPleaseTryAgain": "An error occurred, please try again."
+  "anErrorOccurredPleaseTryAgain": "An error occurred, please try again.",
+  "province": "Province",
+  "governorate": "Governorate",
+  "searchCountry": "Search country"
 }
