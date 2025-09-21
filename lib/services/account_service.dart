@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:get/get.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
+import 'package:saru/generated/l10n.dart';
 import 'package:saru/graphql/mutation/account_mutation.dart';
 import 'package:saru/models/account.dart';
 import 'package:saru/services/language.dart';
@@ -53,7 +54,7 @@ class AccountController extends GetxController {
         if (result.exception!.graphqlErrors.isEmpty && result.exception!.linkException != null) {
           return CustomerCreationResult(
             success: false,
-            errorMessage: 'Network error. Please check your connection and try again.',
+            errorMessage: S.current.networkErrorPleaseCheckYourConnectionAndTryAgain,
             errorType: CustomerErrorType.network,
           );
         }
@@ -73,7 +74,7 @@ class AccountController extends GetxController {
 
         return CustomerCreationResult(
           success: false,
-          errorMessage: 'An unexpected error occurred. Please try again.',
+          errorMessage: S.current.anUnexpectedErrorOccurredPleaseTryAgain,
           errorType: CustomerErrorType.unknown,
         );
       }
@@ -83,7 +84,7 @@ class AccountController extends GetxController {
       if (customerCreate == null) {
         return CustomerCreationResult(
           success: false,
-          errorMessage: 'Failed to create customer. Please try again.',
+          errorMessage: S.current.failedToCreateCustomerPleaseTryAgain,
           errorType: CustomerErrorType.unknown,
         );
       }
@@ -102,7 +103,7 @@ class AccountController extends GetxController {
       if (customer == null) {
         return CustomerCreationResult(
           success: false,
-          errorMessage: 'Failed to create customer account. Please try again.',
+          errorMessage: S.current.failedToCreateCustomerAccountPleaseTryAgain,
           errorType: CustomerErrorType.shopify,
         );
       }
@@ -121,7 +122,7 @@ class AccountController extends GetxController {
       print("Error creating customer: $e");
       return CustomerCreationResult(
         success: false,
-        errorMessage: 'An unexpected error occurred. Please try again later.',
+        errorMessage: S.current.anUnexpectedErrorOccurredPleaseTryAgainLater,
         errorType: CustomerErrorType.unknown,
       );
     }
@@ -152,7 +153,7 @@ class AccountController extends GetxController {
         if (result.exception!.graphqlErrors.isEmpty && result.exception!.linkException != null) {
           return CustomerLoginResult(
             success: false,
-            errorMessage: 'Network error. Please check your connection and try again.',
+            errorMessage: S.current.networkErrorPleaseCheckYourConnectionAndTryAgain,
             errorType: CustomerErrorType.network,
           );
         }
@@ -167,7 +168,7 @@ class AccountController extends GetxController {
           if (error.extensions != null && error.extensions!['code'] == 'THROTTLED') {
             return CustomerLoginResult(
               success: false,
-              errorMessage: 'Too many login attempts. Please wait a few minutes before trying again.',
+              errorMessage: S.current.tooManyLoginAttemptsPleaseWaitAFewMinutesBefore,
               errorType: CustomerErrorType.shopify,
             );
           }
@@ -181,7 +182,7 @@ class AccountController extends GetxController {
 
         return CustomerLoginResult(
           success: false,
-          errorMessage: 'An unexpected error occurred. Please try again.',
+          errorMessage: S.current.anUnexpectedErrorOccurredPleaseTryAgain,
           errorType: CustomerErrorType.unknown,
         );
       }
@@ -191,7 +192,7 @@ class AccountController extends GetxController {
       if (customerAccessTokenCreate == null) {
         return CustomerLoginResult(
           success: false,
-          errorMessage: 'Failed to log in. Please try again.',
+          errorMessage: S.current.failedToLogInPleaseTryAgain,
           errorType: CustomerErrorType.unknown,
         );
       }
@@ -201,7 +202,7 @@ class AccountController extends GetxController {
         final errorMessage = userErrors.first['message'] as String;
         return CustomerLoginResult(
           success: false,
-          errorMessage: _parseLoginError(errorMessage),
+          errorMessage: _parseShopifyError(errorMessage),
           errorType: CustomerErrorType.shopify,
         );
       }
@@ -210,7 +211,7 @@ class AccountController extends GetxController {
       if (customerAccessToken == null) {
         return CustomerLoginResult(
           success: false,
-          errorMessage: 'Invalid email or password. Please check your credentials and try again.',
+          errorMessage: S.current.invalidEmailOrPasswordPleaseCheckYourCredentialsAndTry,
           errorType: CustomerErrorType.shopify,
         );
       }
@@ -222,7 +223,7 @@ class AccountController extends GetxController {
       if (accessToken == null) {
         return CustomerLoginResult(
           success: false,
-          errorMessage: 'Failed to create access token. Please try again.',
+          errorMessage: S.current.failedToCreateAccessTokenPleaseTryAgain,
           errorType: CustomerErrorType.shopify,
         );
       }
@@ -240,115 +241,10 @@ class AccountController extends GetxController {
       print("Error logging in customer: $e");
       return CustomerLoginResult(
         success: false,
-        errorMessage: 'An unexpected error occurred. Please try again later.',
+        errorMessage: S.current.anUnexpectedErrorOccurredPleaseTryAgainLater,
         errorType: CustomerErrorType.unknown,
       );
     }
-  }
-
-  String _parseLoginError(String errorMessage) {
-    final upperError = errorMessage.toUpperCase();
-    final lowerError = errorMessage.toLowerCase();
-
-    // Official Shopify error codes for login
-    if (upperError.contains('ALREADY_ENABLED')) {
-      return 'This customer account is already active.';
-    }
-
-    if (upperError.contains('BAD_DOMAIN')) {
-      return 'Please enter a valid email address. The domain name is invalid.';
-    }
-
-    if (upperError.contains('BLANK')) {
-      return 'Please fill in all required fields.';
-    }
-
-    if (upperError.contains('CONTAINS_HTML_TAGS')) {
-      return 'Please remove any HTML tags from your input.';
-    }
-
-    if (upperError.contains('CONTAINS_URL')) {
-      return 'URLs are not allowed in this field.';
-    }
-
-    if (upperError.contains('CUSTOMER_DISABLED')) {
-      return 'Your account has been disabled. Please contact support for assistance.';
-    }
-
-    if (upperError.contains('INVALID')) {
-      if (lowerError.contains('email')) {
-        return 'Please enter a valid email address.';
-      }
-      if (lowerError.contains('password') || lowerError.contains('credentials')) {
-        return 'Invalid email or password. Please check your credentials and try again.';
-      }
-      return 'The information you entered is invalid. Please check and try again.';
-    }
-
-    if (upperError.contains('INVALID_MULTIPASS_REQUEST')) {
-      return 'Authentication token is invalid. Please try logging in again.';
-    }
-
-    if (upperError.contains('NOT_FOUND')) {
-      return 'Account not found. Please check your email or create a new account.';
-    }
-
-    if (upperError.contains('PASSWORD_STARTS_OR_ENDS_WITH_WHITESPACE')) {
-      return 'Password cannot start or end with spaces. Please remove extra spaces.';
-    }
-
-    if (upperError.contains('TAKEN')) {
-      return 'This information is already in use. Please try a different value.';
-    }
-
-    if (upperError.contains('TOKEN_INVALID')) {
-      return 'The authentication token is invalid or has expired. Please try logging in again.';
-    }
-
-    if (upperError.contains('TOO_LONG')) {
-      if (lowerError.contains('password')) {
-        return 'Password is too long. Please use a shorter password.';
-      }
-      if (lowerError.contains('email')) {
-        return 'Email address is too long. Please use a shorter email.';
-      }
-      return 'The input is too long. Please use fewer characters.';
-    }
-
-    if (upperError.contains('TOO_SHORT')) {
-      if (lowerError.contains('password')) {
-        return 'Password is too short. Please use a longer password.';
-      }
-      return 'The input is too short. Please add more characters.';
-    }
-
-    if (upperError.contains('UNIDENTIFIED_CUSTOMER')) {
-      return 'Account not found. Please check your email or create a new account.';
-    }
-
-    if (upperError.contains('THROTTLED') || lowerError.contains('too many attempts')) {
-      return 'Too many login attempts. Please wait a few minutes before trying again.';
-    }
-
-    // Legacy login-specific error patterns for backwards compatibility
-    if (lowerError.contains('unidentified') || lowerError.contains('not found')) {
-      return 'Account not found. Please check your email or create a new account.';
-    }
-
-    if (lowerError.contains('password') && (lowerError.contains('incorrect') || lowerError.contains('invalid'))) {
-      return 'Incorrect password. Please try again.';
-    }
-
-    if (lowerError.contains('credentials') || lowerError.contains('authentication')) {
-      return 'Invalid email or password. Please check your credentials and try again.';
-    }
-
-    if (lowerError.contains('rate limit') || lowerError.contains('too many requests')) {
-      return 'Too many login attempts. Please wait a few minutes before trying again.';
-    }
-
-    // Return original message if no specific pattern matches
-    return errorMessage;
   }
 
   // ==================== AUTHENTICATION MANAGEMENT ====================
@@ -537,103 +433,182 @@ class AccountController extends GetxController {
 
     // Official Shopify error codes
     if (upperError.contains('ALREADY_ENABLED')) {
-      return 'This customer account is already active.';
+      return S.current.thisCustomerAccountIsAlreadyActive;
     }
 
     if (upperError.contains('BAD_DOMAIN')) {
-      return 'Please enter a valid email address. The domain name is invalid.';
+      return S.current.pleaseEnterAValidEmailAddressTheDomainNameIs;
     }
 
     if (upperError.contains('BLANK')) {
-      return 'Please fill in all required fields.';
+      return S.current.pleaseFillInAllRequiredFields;
     }
 
     if (upperError.contains('CONTAINS_HTML_TAGS')) {
-      return 'Please remove any HTML tags from your input.';
+      return S.current.pleaseRemoveAnyHtmlTagsFromYourInput;
     }
 
     if (upperError.contains('CONTAINS_URL')) {
-      return 'URLs are not allowed in this field.';
+      return S.current.urlsAreNotAllowedInThisField;
     }
 
     if (upperError.contains('CUSTOMER_DISABLED')) {
-      return 'This customer account has been disabled. Please contact support.';
+      return S.current.thisCustomerAccountHasBeenDisabledPleaseContactSupport;
     }
 
     if (upperError.contains('INVALID')) {
       if (lowerError.contains('email')) {
         return 'Please enter a valid email address.';
       }
-      return 'The information you entered is invalid. Please check and try again.';
+      return S.current.theInformationYouEnteredIsInvalidPleaseCheckAndTry;
     }
 
     if (upperError.contains('INVALID_MULTIPASS_REQUEST')) {
-      return 'Authentication token is invalid. Please try logging in again.';
+      return S.current.authenticationTokenIsInvalidPleaseTryLoggingInAgain;
     }
 
     if (upperError.contains('NOT_FOUND')) {
-      return 'The requested information could not be found.';
+      return S.current.theRequestedInformationCouldNotBeFound;
     }
 
     if (upperError.contains('PASSWORD_STARTS_OR_ENDS_WITH_WHITESPACE')) {
-      return 'Password cannot start or end with spaces. Please remove extra spaces.';
+      return S.current.passwordCannotStartOrEndWithSpacesPleaseRemoveExtra;
     }
 
     if (upperError.contains('TAKEN')) {
       if (lowerError.contains('email')) {
-        return 'Email already exists. Please use a different email or try logging in.';
+        return S.current.emailAlreadyExistsPleaseUseADifferentEmailOrTry;
       }
-      return 'This information is already in use. Please try a different value.';
+      return S.current.thisInformationIsAlreadyInUsePleaseTryADifferent;
     }
 
     if (upperError.contains('TOKEN_INVALID')) {
-      return 'The activation token is invalid or has expired. Please request a new one.';
+      return S.current.theActivationTokenIsInvalidOrHasExpiredPleaseRequest;
     }
 
     if (upperError.contains('TOO_LONG')) {
       if (lowerError.contains('password')) {
-        return 'Password is too long. Please use a shorter password.';
+        return S.current.passwordIsTooLongPleaseUseAShorterPassword;
       }
       if (lowerError.contains('first') || lowerError.contains('name')) {
-        return 'Name is too long. Please use a shorter name.';
+        return S.current.nameIsTooLongPleaseUseAShorterName;
       }
-      return 'The input is too long. Please use fewer characters.';
+      return S.current.theInputIsTooLongPleaseUseFewerCharacters;
     }
 
     if (upperError.contains('TOO_SHORT')) {
       if (lowerError.contains('password')) {
-        return 'Password must be at least 8 characters long.';
+        return S.current.passwordMustBeAtLeast8CharactersLong;
       }
-      return 'The input is too short. Please add more characters.';
+      return S.current.theInputIsTooShortPleaseAddMoreCharacters;
     }
 
     if (upperError.contains('UNIDENTIFIED_CUSTOMER')) {
-      return 'Customer account not found. Please check your information or create a new account.';
+      return S.current.customerAccountNotFoundPleaseCheckYourInformationOrCreate;
     }
 
     if (upperError.contains('THROTTLED') || lowerError.contains('limit exceeded')) {
-      return 'Account creation limit reached. Please wait a few minutes before trying again.';
+      return S.current.accountCreationLimitReachedPleaseWaitAFewMinutesBefore;
     }
 
     // Legacy error message parsing for backwards compatibility
     if (lowerError.contains('email') && lowerError.contains('taken')) {
-      return 'Email already exists. Please use a different email or try logging in.';
+      return S.current.emailAlreadyExistsPleaseUseADifferentEmailOrTry;
     }
 
     if (lowerError.contains('email') && lowerError.contains('invalid')) {
-      return 'Please enter a valid email address.';
+      return S.current.pleaseEnterAValidEmailAddress;
     }
 
     if (lowerError.contains('password') && lowerError.contains('weak')) {
-      return 'Password is too weak. Please use a stronger password.';
+      return S.current.passwordIsTooWeakPleaseUseAStrongerPassword;
     }
 
     if (lowerError.contains('rate limit') || lowerError.contains('too many requests')) {
-      return 'Too many attempts. Please wait a moment before trying again.';
+      return S.current.tooManyAttemptsPleaseWaitAMomentBeforeTryingAgain;
     }
 
     // Return original message if no specific pattern matches
     return errorMessage;
+  }
+
+  Future<CustomerUpdateResult> updateCustomer(String firstName, String lastName, String phone) async {
+    try {
+      final result = await client.mutate(
+        MutationOptions(
+          document: gql(customerUpdateMutation),
+          variables: {
+            "customerAccessToken": customerAccessToken.value,
+            "firstName": firstName.trim().isEmpty ? null : firstName.trim(),
+            "lastName": lastName.trim().isEmpty ? null : lastName.trim(),
+            "phone": phone.trim().isEmpty ? null : phone.trim(),
+          },
+          fetchPolicy: FetchPolicy.networkOnly,
+        ),
+      );
+
+      // 1️⃣ Handle exceptions
+      if (result.hasException) {
+        print('GraphQL Exception: ${result.exception.toString()}');
+
+        if (result.exception!.graphqlErrors.isEmpty && result.exception!.linkException != null) {
+          return CustomerUpdateResult(
+            success: false,
+            errorMessage: S.current.networkErrorPleaseCheckYourConnectionAndTryAgain,
+          ); // network issue
+        }
+
+        if (result.exception!.graphqlErrors.isNotEmpty) {
+          print('Shopify Error: ${_parseShopifyError(result.exception!.graphqlErrors.first.message)}');
+        }
+
+        return CustomerUpdateResult(
+          success: false,
+          errorMessage: S.current.failedToUpdateCustomerInformationPleaseTryAgain,
+        );
+      }
+
+      // 2️⃣ Parse Shopify response
+      final customerUpdate = result.data?['customerUpdate'];
+      if (customerUpdate == null) {
+        return CustomerUpdateResult(
+          success: false,
+          errorMessage: S.current.failedToUpdateCustomerInformationPleaseTryAgain,
+        );
+      }
+
+      final userErrors = customerUpdate['customerUserErrors'] as List?;
+      if (userErrors != null && userErrors.isNotEmpty) {
+        final errorMessage = userErrors.first['message'] as String;
+        print('Shopify User Error: ${_parseShopifyError(errorMessage)}');
+        return CustomerUpdateResult(
+          success: false,
+          errorMessage: _parseShopifyError(errorMessage),
+        );
+      }
+
+      final updatedCustomer = customerUpdate['customer'];
+      if (updatedCustomer == null) {
+        return CustomerUpdateResult(
+          success: false,
+          errorMessage: S.current.failedToUpdateCustomerInformationPleaseTryAgain,
+        );
+      }
+
+      // 3️⃣ Refresh local customer data
+      await _fetchAndStoreCustomerData(customerAccessToken.value);
+
+      return CustomerUpdateResult(
+        success: true,
+        errorMessage: '',
+      );
+    } catch (e) {
+      print("Error updating customer: $e");
+      return CustomerUpdateResult(
+        success: false,
+        errorMessage: S.current.failedToUpdateCustomerInformationPleaseTryAgain,
+      );
+    }
   }
 }
 

@@ -59,3 +59,29 @@ String customerQuery({String locale = 'EN'}) {
   }
   ''';
 }
+
+String customerUpdateMutation = '''
+mutation customerUpdate(\$customerAccessToken: String!, \$firstName: String, \$lastName: String, \$phone: String) {
+  customerUpdate(
+    customerAccessToken: \$customerAccessToken,
+    customer: {
+      firstName: \$firstName,
+      lastName: \$lastName,
+      phone: \$phone
+    }
+  ) {
+    customer {
+      id
+      firstName
+      lastName
+      phone
+      email
+    }
+    customerUserErrors {
+      code
+      field
+      message
+    }
+  }
+}
+''';

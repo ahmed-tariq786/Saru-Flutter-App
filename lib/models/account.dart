@@ -14,6 +14,16 @@ class CustomerCreationResult {
   });
 }
 
+class CustomerUpdateResult {
+  final bool success;
+  final String? errorMessage;
+
+  CustomerUpdateResult({
+    required this.success,
+    this.errorMessage,
+  });
+}
+
 class CustomerData {
   final String id;
   final String email;

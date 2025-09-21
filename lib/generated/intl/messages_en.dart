@@ -58,6 +58,10 @@ class MessageLookup extends MessageLookupByLibrary {
         MessageLookupByLibrary.simpleMessage(
           "An unexpected error occurred. Please try again.",
         ),
+    "anUnexpectedErrorOccurredPleaseTryAgainLater":
+        MessageLookupByLibrary.simpleMessage(
+          "An unexpected error occurred. Please try again later.",
+        ),
     "anUnknownErrorOccurred": MessageLookupByLibrary.simpleMessage(
       "An unknown error occurred.",
     ),
@@ -125,6 +129,25 @@ class MessageLookup extends MessageLookupByLibrary {
     "failedToAddAddress": MessageLookupByLibrary.simpleMessage(
       "Failed to add address",
     ),
+    "failedToCreateAccessTokenPleaseTryAgain":
+        MessageLookupByLibrary.simpleMessage(
+          "Failed to create access token. Please try again.",
+        ),
+    "failedToCreateCustomerAccountPleaseTryAgain":
+        MessageLookupByLibrary.simpleMessage(
+          "Failed to create customer account. Please try again.",
+        ),
+    "failedToCreateCustomerPleaseTryAgain":
+        MessageLookupByLibrary.simpleMessage(
+          "Failed to create customer. Please try again.",
+        ),
+    "failedToLogInPleaseTryAgain": MessageLookupByLibrary.simpleMessage(
+      "Failed to log in. Please try again.",
+    ),
+    "failedToUpdateCustomerInformationPleaseTryAgain":
+        MessageLookupByLibrary.simpleMessage(
+          "Failed to update customer information. Please try again.",
+        ),
     "favorites": MessageLookupByLibrary.simpleMessage("Favorites"),
     "featured": MessageLookupByLibrary.simpleMessage("Featured"),
     "filterBy": MessageLookupByLibrary.simpleMessage("Filter By"),
@@ -135,6 +158,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "home": MessageLookupByLibrary.simpleMessage("home"),
     "inProgress": MessageLookupByLibrary.simpleMessage("In Progress"),
     "inStock": MessageLookupByLibrary.simpleMessage("In Stock"),
+    "invalidEmailOrPasswordPleaseCheckYourCredentialsAndTry":
+        MessageLookupByLibrary.simpleMessage(
+          "Invalid email or password. Please check your credentials and try again.",
+        ),
     "items": MessageLookupByLibrary.simpleMessage("item(s))"),
     "kdMore": MessageLookupByLibrary.simpleMessage(" more"),
     "language": MessageLookupByLibrary.simpleMessage("Language"),
@@ -258,6 +285,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "privacyPolicy": MessageLookupByLibrary.simpleMessage("Privacy Policy."),
     "products": MessageLookupByLibrary.simpleMessage("Products"),
     "profile": MessageLookupByLibrary.simpleMessage("Profile"),
+    "profileUpdatedSuccessfully": MessageLookupByLibrary.simpleMessage(
+      "Profile updated successfully",
+    ),
     "recentlySearched": MessageLookupByLibrary.simpleMessage(
       "Recently Searched",
     ),
@@ -328,6 +358,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "tooManyAttemptsPleaseWaitAMomentBeforeTryingAgain":
         MessageLookupByLibrary.simpleMessage(
           "Too many attempts. Please wait a moment before trying again.",
+        ),
+    "tooManyLoginAttemptsPleaseWaitAFewMinutesBefore":
+        MessageLookupByLibrary.simpleMessage(
+          "Too many login attempts. Please wait a few minutes before trying again.",
         ),
     "trySearchingWithDifferentKeywords": MessageLookupByLibrary.simpleMessage(
       "Try searching with different keywords",

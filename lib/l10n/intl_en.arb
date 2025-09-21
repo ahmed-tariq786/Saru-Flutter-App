@@ -171,5 +171,14 @@
   "restocked": "Restocked",
   "scheduled": "Scheduled",
   "unknown": "Unknown",
-  "paid": "Paid"
+  "paid": "Paid",
+  "profileUpdatedSuccessfully": "Profile updated successfully",
+  "failedToUpdateCustomerInformationPleaseTryAgain": "Failed to update customer information. Please try again.",
+  "anUnexpectedErrorOccurredPleaseTryAgainLater": "An unexpected error occurred. Please try again later.",
+  "failedToCreateCustomerAccountPleaseTryAgain": "Failed to create customer account. Please try again.",
+  "failedToCreateCustomerPleaseTryAgain": "Failed to create customer. Please try again.",
+  "failedToCreateAccessTokenPleaseTryAgain": "Failed to create access token. Please try again.",
+  "invalidEmailOrPasswordPleaseCheckYourCredentialsAndTry": "Invalid email or password. Please check your credentials and try again.",
+  "failedToLogInPleaseTryAgain": "Failed to log in. Please try again.",
+  "tooManyLoginAttemptsPleaseWaitAFewMinutesBefore": "Too many login attempts. Please wait a few minutes before trying again."
 }

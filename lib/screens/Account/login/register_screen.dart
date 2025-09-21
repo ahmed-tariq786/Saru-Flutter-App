@@ -196,7 +196,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               AppColors.black,
                               FontWeight.w400,
                             ),
-                            keyboardType: TextInputType.emailAddress,
+                            keyboardType: TextInputType.text,
 
                             decoration: InputDecoration(
                               fillColor: AppColors.white,
@@ -249,6 +249,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                   width: 1,
                                   color: const Color.fromARGB(255, 198, 21, 9),
                                 ),
+                              ),
+
+                              labelText: S.of(context).firstName,
+                              labelStyle: textstyle(
+                                13,
+                                AppColors.darkGrey.withOpacity(1),
+                                FontWeight.w500,
                               ),
 
                               hintText: S.of(context).firstName,
@@ -290,7 +297,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               AppColors.black,
                               FontWeight.w400,
                             ),
-                            keyboardType: TextInputType.emailAddress,
+                            keyboardType: TextInputType.text,
 
                             decoration: InputDecoration(
                               fillColor: AppColors.white,
@@ -345,6 +352,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 ),
                               ),
 
+                              labelText: S.of(context).lastName,
+                              labelStyle: textstyle(
+                                13,
+                                AppColors.darkGrey.withOpacity(1),
+                                FontWeight.w500,
+                              ),
                               hintText: S.of(context).lastName,
                               hintStyle: textstyle(
                                 15,
@@ -435,6 +448,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 ),
                               ),
 
+                              labelText: S.of(context).email,
+                              labelStyle: textstyle(
+                                13,
+                                AppColors.darkGrey.withOpacity(1),
+                                FontWeight.w500,
+                              ),
                               hintText: S.of(context).email,
                               hintStyle: textstyle(
                                 15,
@@ -530,6 +549,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                     width: 1,
                                     color: const Color.fromARGB(255, 198, 21, 9),
                                   ),
+                                ),
+
+                                labelText: S.of(context).password,
+                                labelStyle: textstyle(
+                                  13,
+                                  AppColors.darkGrey.withOpacity(1),
+                                  FontWeight.w500,
                                 ),
 
                                 hintText: S.of(context).password,

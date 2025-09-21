@@ -6,6 +6,7 @@ import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 import 'package:saru/generated/l10n.dart';
 import 'package:saru/screens/Account/Addresses/addresses_screen.dart';
 import 'package:saru/screens/Account/Orders/order_screen.dart';
+import 'package:saru/screens/Account/Profile/profile_screen.dart';
 import 'package:saru/screens/Account/favorites.dart';
 import 'package:saru/screens/Account/login/login_screen.dart';
 import 'package:saru/services/account_service.dart';
@@ -64,8 +65,43 @@ class _AccountScreenState extends State<AccountScreen> {
               child: Obx(
                 () => Column(
                   children: [
-                    if (!accountController.isLoggedIn.value)
-                      // Account
+                    // if (!accountController.isLoggedIn.value)
+                    // Account
+                    ListTile(
+                      minTileHeight: 0,
+                      contentPadding: const EdgeInsets.symmetric(
+                        horizontal: 12,
+                        vertical: 12,
+                      ),
+                      leading: Icon(
+                        Icons.person,
+                        color: AppColors.darkGrey.withOpacity(0.9),
+                      ),
+                      title: myText(
+                        S.of(context).loginRegister,
+                        14,
+                        FontWeight.w500,
+                        Colors.black,
+                        TextAlign.start,
+                      ),
+
+                      trailing: Icon(
+                        Icons.arrow_forward_ios,
+                        size: 14,
+                        color: AppColors.darkGrey.withOpacity(0.7),
+                      ),
+                      onTap: () {
+                        PersistentNavBarNavigator.pushNewScreen(
+                          context,
+                          screen: LoginRegisterScreen(),
+                          withNavBar: false, // <--- keeps the bottom bar visible
+                          pageTransitionAnimation: PageTransitionAnimation.cupertino,
+                        );
+                      },
+                    ),
+
+                    // Profile
+                    if (accountController.isLoggedIn.value)
                       ListTile(
                         minTileHeight: 0,
                         contentPadding: const EdgeInsets.symmetric(
@@ -77,7 +113,7 @@ class _AccountScreenState extends State<AccountScreen> {
                           color: AppColors.darkGrey.withOpacity(0.9),
                         ),
                         title: myText(
-                          S.of(context).loginRegister,
+                          S.of(context).profile,
                           14,
                           FontWeight.w500,
                           Colors.black,
@@ -92,11 +128,17 @@ class _AccountScreenState extends State<AccountScreen> {
                         onTap: () {
                           PersistentNavBarNavigator.pushNewScreen(
                             context,
-                            screen: LoginRegisterScreen(),
-                            withNavBar: false, // <--- keeps the bottom bar visible
+                            screen: ProfileScreen(),
+                            withNavBar: true, // <--- keeps the bottom bar visible
                             pageTransitionAnimation: PageTransitionAnimation.cupertino,
                           );
                         },
+                      ),
+
+                    if (accountController.isLoggedIn.value)
+                      Divider(
+                        color: Colors.grey.withOpacity(0.2),
+                        height: 1,
                       ),
 
                     // Addresses

@@ -122,88 +122,89 @@ class _OrderScreenState extends State<OrderScreen> {
       ),
 
       body: Obx(
-        () => Column(
-          children: [
-            // Loading
-            if (isLoading.value)
-              Padding(
-                padding: const EdgeInsets.only(top: 200.0),
-                child: Center(
-                  child: loader(context),
-                ),
-              )
-            // Empty
-            else if (orderController.orders.isEmpty)
-              Container(
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  color: AppColors.white,
-                  borderRadius: BorderRadius.circular(10),
-                  boxShadow: [
-                    BoxShadow(
-                      color: AppColors.lightGrey.withOpacity(0.5),
-                      blurRadius: 5,
-                      offset: Offset(0, 2),
-                    ),
-                  ],
-                ),
-                padding: const EdgeInsets.all(12),
-                margin: const EdgeInsets.all(12),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  spacing: 12,
-                  children: [
-                    Icon(
-                      Icons.receipt_long,
-                      size: 80,
-                      color: AppColors.grey.withOpacity(0.5),
-                    ),
-                    Column(
-                      spacing: 6,
-                      children: [
-                        myText(
-                          S.of(context).noOrdersYet,
-                          18,
-                          FontWeight.w900,
-                          AppColors.darkGrey,
-                          TextAlign.center,
-                        ),
-                        myText(
-                          S.of(context).youHaventPlacedAnyOrdersYetStartShoppingToSee,
-                          14,
-                          FontWeight.w500,
-                          AppColors.grey,
-                          TextAlign.center,
-                        ),
-                        RoundButton(
-                          text: S.of(context).shopNow,
-                          backgroundColor: AppColors.black,
-                          borderColor: AppColors.black,
-                          height: 45,
-                          width: Get.width,
-                          radius: 10,
-                          onClick: () {
-                            widget.tabController?.jumpToTab(0);
-                          },
-                          fontSize: 16,
-                          fontWeight: FontWeight.w800,
-                          textcolor: AppColors.white,
-                          align: TextAlign.center,
-                          isheading: false,
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              )
-            // List
-            else
-              Container(
-                padding: const EdgeInsets.all(12),
-                child: SingleChildScrollView(
-                  physics: AlwaysScrollableScrollPhysics(),
-                  controller: _scrollController,
+        () => SingleChildScrollView(
+          physics: AlwaysScrollableScrollPhysics(),
+          controller: _scrollController,
+
+          child: Column(
+            children: [
+              // Loading
+              if (isLoading.value)
+                Padding(
+                  padding: const EdgeInsets.only(top: 200.0),
+                  child: Center(
+                    child: loader(context),
+                  ),
+                )
+              // Empty
+              else if (orderController.orders.isEmpty)
+                Container(
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    color: AppColors.white,
+                    borderRadius: BorderRadius.circular(10),
+                    boxShadow: [
+                      BoxShadow(
+                        color: AppColors.lightGrey.withOpacity(0.5),
+                        blurRadius: 5,
+                        offset: Offset(0, 2),
+                      ),
+                    ],
+                  ),
+                  padding: const EdgeInsets.all(12),
+                  margin: const EdgeInsets.all(12),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    spacing: 12,
+                    children: [
+                      Icon(
+                        Icons.receipt_long,
+                        size: 80,
+                        color: AppColors.grey.withOpacity(0.5),
+                      ),
+                      Column(
+                        spacing: 6,
+                        children: [
+                          myText(
+                            S.of(context).noOrdersYet,
+                            18,
+                            FontWeight.w900,
+                            AppColors.darkGrey,
+                            TextAlign.center,
+                          ),
+                          myText(
+                            S.of(context).youHaventPlacedAnyOrdersYetStartShoppingToSee,
+                            14,
+                            FontWeight.w500,
+                            AppColors.grey,
+                            TextAlign.center,
+                          ),
+                          RoundButton(
+                            text: S.of(context).shopNow,
+                            backgroundColor: AppColors.black,
+                            borderColor: AppColors.black,
+                            height: 45,
+                            width: Get.width,
+                            radius: 10,
+                            onClick: () {
+                              widget.tabController?.jumpToTab(0);
+                            },
+                            fontSize: 16,
+                            fontWeight: FontWeight.w800,
+                            textcolor: AppColors.white,
+                            align: TextAlign.center,
+                            isheading: false,
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                )
+              // List
+              else
+                Container(
+                  padding: const EdgeInsets.all(12),
                   child: Column(
                     children: [
                       ...orderController.orders.map(
@@ -225,8 +226,8 @@ class _OrderScreenState extends State<OrderScreen> {
                     ],
                   ),
                 ),
-              ),
-          ],
+            ],
+          ),
         ),
       ),
     );

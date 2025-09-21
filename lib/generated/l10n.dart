@@ -1388,6 +1388,96 @@ class S {
   String get paid {
     return Intl.message('Paid', name: 'paid', desc: '', args: []);
   }
+
+  /// `Profile updated successfully`
+  String get profileUpdatedSuccessfully {
+    return Intl.message(
+      'Profile updated successfully',
+      name: 'profileUpdatedSuccessfully',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Failed to update customer information. Please try again.`
+  String get failedToUpdateCustomerInformationPleaseTryAgain {
+    return Intl.message(
+      'Failed to update customer information. Please try again.',
+      name: 'failedToUpdateCustomerInformationPleaseTryAgain',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `An unexpected error occurred. Please try again later.`
+  String get anUnexpectedErrorOccurredPleaseTryAgainLater {
+    return Intl.message(
+      'An unexpected error occurred. Please try again later.',
+      name: 'anUnexpectedErrorOccurredPleaseTryAgainLater',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Failed to create customer account. Please try again.`
+  String get failedToCreateCustomerAccountPleaseTryAgain {
+    return Intl.message(
+      'Failed to create customer account. Please try again.',
+      name: 'failedToCreateCustomerAccountPleaseTryAgain',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Failed to create customer. Please try again.`
+  String get failedToCreateCustomerPleaseTryAgain {
+    return Intl.message(
+      'Failed to create customer. Please try again.',
+      name: 'failedToCreateCustomerPleaseTryAgain',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Failed to create access token. Please try again.`
+  String get failedToCreateAccessTokenPleaseTryAgain {
+    return Intl.message(
+      'Failed to create access token. Please try again.',
+      name: 'failedToCreateAccessTokenPleaseTryAgain',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Invalid email or password. Please check your credentials and try again.`
+  String get invalidEmailOrPasswordPleaseCheckYourCredentialsAndTry {
+    return Intl.message(
+      'Invalid email or password. Please check your credentials and try again.',
+      name: 'invalidEmailOrPasswordPleaseCheckYourCredentialsAndTry',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Failed to log in. Please try again.`
+  String get failedToLogInPleaseTryAgain {
+    return Intl.message(
+      'Failed to log in. Please try again.',
+      name: 'failedToLogInPleaseTryAgain',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Too many login attempts. Please wait a few minutes before trying again.`
+  String get tooManyLoginAttemptsPleaseWaitAFewMinutesBefore {
+    return Intl.message(
+      'Too many login attempts. Please wait a few minutes before trying again.',
+      name: 'tooManyLoginAttemptsPleaseWaitAFewMinutesBefore',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

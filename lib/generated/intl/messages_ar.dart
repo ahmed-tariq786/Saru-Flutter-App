@@ -60,6 +60,10 @@ class MessageLookup extends MessageLookupByLibrary {
         MessageLookupByLibrary.simpleMessage(
           "حدث خطأ غير متوقع. من فضلك حاول مرة أخرى.",
         ),
+    "anUnexpectedErrorOccurredPleaseTryAgainLater":
+        MessageLookupByLibrary.simpleMessage(
+          "حدث خطأ غير متوقع. يرجى المحاولة مرة أخرى لاحقًا.",
+        ),
     "anUnknownErrorOccurred": MessageLookupByLibrary.simpleMessage(
       "حدث خطأ غير معروف.",
     ),
@@ -127,6 +131,25 @@ class MessageLookup extends MessageLookupByLibrary {
     "failedToAddAddress": MessageLookupByLibrary.simpleMessage(
       "فشل في إضافة عنوان",
     ),
+    "failedToCreateAccessTokenPleaseTryAgain":
+        MessageLookupByLibrary.simpleMessage(
+          "فشل في إنشاء رمز الوصول. من فضلك حاول مرة أخرى.",
+        ),
+    "failedToCreateCustomerAccountPleaseTryAgain":
+        MessageLookupByLibrary.simpleMessage(
+          "فشل في إنشاء حساب العميل. من فضلك حاول مرة أخرى.",
+        ),
+    "failedToCreateCustomerPleaseTryAgain":
+        MessageLookupByLibrary.simpleMessage(
+          "فشل في إنشاء عميل. من فضلك حاول مرة أخرى.",
+        ),
+    "failedToLogInPleaseTryAgain": MessageLookupByLibrary.simpleMessage(
+      "فشل في تسجيل الدخول. يرجى المحاولة مرة أخرى.",
+    ),
+    "failedToUpdateCustomerInformationPleaseTryAgain":
+        MessageLookupByLibrary.simpleMessage(
+          "فشل في تحديث معلومات العميل. من فضلك حاول مرة أخرى.",
+        ),
     "favorites": MessageLookupByLibrary.simpleMessage("المفضلة"),
     "featured": MessageLookupByLibrary.simpleMessage("مميز"),
     "filterBy": MessageLookupByLibrary.simpleMessage("تصفية بواسطة"),
@@ -137,6 +160,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "home": MessageLookupByLibrary.simpleMessage("بيت"),
     "inProgress": MessageLookupByLibrary.simpleMessage("في تَقَدم"),
     "inStock": MessageLookupByLibrary.simpleMessage("متوفر"),
+    "invalidEmailOrPasswordPleaseCheckYourCredentialsAndTry":
+        MessageLookupByLibrary.simpleMessage(
+          "بريد إلكتروني غير صالح أو كلمة مرور. يرجى التحقق من بيانات الاعتماد الخاصة بك والمحاولة مرة أخرى.",
+        ),
     "items": MessageLookupByLibrary.simpleMessage("أغراض))"),
     "kdMore": MessageLookupByLibrary.simpleMessage("أكثر"),
     "language": MessageLookupByLibrary.simpleMessage("لغة"),
@@ -260,6 +287,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "privacyPolicy": MessageLookupByLibrary.simpleMessage("سياسة الخصوصية."),
     "products": MessageLookupByLibrary.simpleMessage("منتجات"),
     "profile": MessageLookupByLibrary.simpleMessage("حساب تعريفي"),
+    "profileUpdatedSuccessfully": MessageLookupByLibrary.simpleMessage(
+      "تم تحديث ملف التعريف بنجاح",
+    ),
     "recentlySearched": MessageLookupByLibrary.simpleMessage(
       "تم تفتيشه مؤخرًا",
     ),
@@ -334,6 +364,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "tooManyAttemptsPleaseWaitAMomentBeforeTryingAgain":
         MessageLookupByLibrary.simpleMessage(
           "الكثير من المحاولات. من فضلك انتظر لحظة قبل المحاولة مرة أخرى.",
+        ),
+    "tooManyLoginAttemptsPleaseWaitAFewMinutesBefore":
+        MessageLookupByLibrary.simpleMessage(
+          "الكثير من محاولات تسجيل الدخول. يرجى الانتظار بضع دقائق قبل المحاولة مرة أخرى.",
         ),
     "trySearchingWithDifferentKeywords": MessageLookupByLibrary.simpleMessage(
       "حاول البحث بكلمات رئيسية مختلفة",

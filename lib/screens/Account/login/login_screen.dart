@@ -229,6 +229,14 @@ class _LoginRegisterScreenState extends State<LoginRegisterScreen> {
                                 color: const Color.fromARGB(255, 198, 21, 9),
                               ),
                             ),
+
+                            labelText: S.of(context).email,
+                            labelStyle: textstyle(
+                              13,
+                              AppColors.darkGrey.withOpacity(1),
+                              FontWeight.w500,
+                            ),
+
                             hintText: S.of(context).email,
                             hintStyle: textstyle(
                               15,
@@ -328,6 +336,13 @@ class _LoginRegisterScreenState extends State<LoginRegisterScreen> {
                                   width: 1,
                                   color: const Color.fromARGB(255, 198, 21, 9),
                                 ),
+                              ),
+
+                              labelText: S.of(context).password,
+                              labelStyle: textstyle(
+                                13,
+                                AppColors.darkGrey.withOpacity(1),
+                                FontWeight.w500,
                               ),
 
                               hintText: S.of(context).password,

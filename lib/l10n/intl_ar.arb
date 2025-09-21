@@ -171,5 +171,14 @@
   "restocked": "أعيد تخزينها",
   "scheduled": "من المقرر",
   "unknown": "مجهول",
-  "paid": "مدفوع"
+  "paid": "مدفوع",
+  "profileUpdatedSuccessfully": "تم تحديث ملف التعريف بنجاح",
+  "failedToUpdateCustomerInformationPleaseTryAgain": "فشل في تحديث معلومات العميل. من فضلك حاول مرة أخرى.",
+  "anUnexpectedErrorOccurredPleaseTryAgainLater": "حدث خطأ غير متوقع. يرجى المحاولة مرة أخرى لاحقًا.",
+  "failedToCreateCustomerAccountPleaseTryAgain": "فشل في إنشاء حساب العميل. من فضلك حاول مرة أخرى.",
+  "failedToCreateCustomerPleaseTryAgain": "فشل في إنشاء عميل. من فضلك حاول مرة أخرى.",
+  "failedToCreateAccessTokenPleaseTryAgain": "فشل في إنشاء رمز الوصول. من فضلك حاول مرة أخرى.",
+  "invalidEmailOrPasswordPleaseCheckYourCredentialsAndTry": "بريد إلكتروني غير صالح أو كلمة مرور. يرجى التحقق من بيانات الاعتماد الخاصة بك والمحاولة مرة أخرى.",
+  "failedToLogInPleaseTryAgain": "فشل في تسجيل الدخول. يرجى المحاولة مرة أخرى.",
+  "tooManyLoginAttemptsPleaseWaitAFewMinutesBefore": "الكثير من محاولات تسجيل الدخول. يرجى الانتظار بضع دقائق قبل المحاولة مرة أخرى."
 }
