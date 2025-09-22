@@ -27,6 +27,7 @@ String customerLoginMutation({String locale = 'EN'}) {
         expiresAt
       }
       customerUserErrors {
+        code
         field
         message
       }

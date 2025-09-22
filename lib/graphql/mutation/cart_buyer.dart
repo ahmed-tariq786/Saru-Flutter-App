@@ -11,6 +11,7 @@ const String cartBuyerIdentityUpdateMutation = r'''
         }
       }
       userErrors {
+        code
         field
         message
       }
@@ -28,6 +29,11 @@ mutation cartBuyerIdentityUpdate($cartId: ID!, $buyerIdentity: CartBuyerIdentity
           id
         }
       }
+    }
+    userErrors {
+      code
+      field
+      message
     }
   }
 }

@@ -645,7 +645,7 @@ class CartController extends GetxController {
 
     final errors = result.data?['cartBuyerIdentityUpdate']?['userErrors'] as List?;
     if (errors != null && errors.isNotEmpty) {
-      print("Cart attach error: ${errors.first['message']}");
+      print("Cart attach error: ${errors.first['code']}");
       return false;
     }
 
@@ -677,7 +677,7 @@ class CartController extends GetxController {
 
     final errors = result.data?['cartBuyerIdentityUpdate']?['userErrors'] as List?;
     if (errors != null && errors.isNotEmpty) {
-      print("Cart attach error: ${errors.first['message']}");
+      print("Cart attach error: ${errors.first['code']}");
       return false;
     }
 

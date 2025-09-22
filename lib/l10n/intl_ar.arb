@@ -185,5 +185,9 @@
   "anErrorOccurredPleaseTryAgain": "حدث خطأ ، يرجى المحاولة مرة أخرى.",
   "province": "مقاطعة",
   "governorate": "محافظة",
-  "searchCountry": "دولة البحث"
+  "searchCountry": "دولة البحث",
+  "lostYourPasswordPleaseEnterYourEmailAddressYouWill": "Lost your password? Please enter your email address. You will receive a link to create a new password via email.",
+  "resetPassword": "Reset Password",
+  "pleaseCheckYourEmailForResetInstructions": "Please check your email for reset instructions.",
+  "failedToSendResetPasswordEmailPleaseTryAgain": "Failed to send reset password email. Please try again."
 }

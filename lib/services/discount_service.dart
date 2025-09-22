@@ -46,7 +46,7 @@ class DiscountController extends GetxController {
       // Check userErrors from Shopify
       final userErrors = updateData['userErrors'] as List?;
       if (userErrors != null && userErrors.isNotEmpty) {
-        final errorMessage = userErrors[0]['message'] ?? 'Unknown discount error';
+        final errorMessage = userErrors[0]['code'] ?? 'Unknown discount error';
         lastDiscountError.value = errorMessage;
         print("❌ Discount error: $errorMessage");
         return {'success': false, 'error': errorMessage};

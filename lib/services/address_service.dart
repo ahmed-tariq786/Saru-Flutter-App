@@ -86,7 +86,7 @@ class AddressController extends GetxController {
       final customerAddressCreate = result.data?['customerAddressCreate'];
       final userErrors = customerAddressCreate?['customerUserErrors'] as List?;
       if (userErrors != null && userErrors.isNotEmpty) {
-        final errorMessage = userErrors.first['message'] as String;
+        final errorMessage = userErrors.first['code'] as String;
         return AddressCreationResult(
           success: false,
           errorMessage: _parseShopifyError(errorMessage),
@@ -159,7 +159,7 @@ class AddressController extends GetxController {
       final updateData = result.data?['customerDefaultAddressUpdate'];
       final userErrors = updateData?['customerUserErrors'] as List?;
       if (userErrors != null && userErrors.isNotEmpty) {
-        final errorMessage = userErrors.first['message'] as String;
+        final errorMessage = userErrors.first['code'] as String;
         return AddressUpdateResult(
           success: false,
           errorMessage: _parseShopifyError(errorMessage),
@@ -436,10 +436,10 @@ class AddressController extends GetxController {
       final data = result.data?['customerAddressDelete'];
       final userErrors = data?['customerUserErrors'] as List?;
       if (userErrors != null && userErrors.isNotEmpty) {
-        print("Shopify Error: ${userErrors.first['message']}");
+        print("Shopify Error: ${userErrors.first['code']}");
         return AddressDeletionResult(
           success: false,
-          errorMessage: _parseShopifyError(userErrors.first['message']),
+          errorMessage: _parseShopifyError(userErrors.first['code']),
         );
       }
 
@@ -493,10 +493,10 @@ class AddressController extends GetxController {
       final data = result.data?['customerAddressUpdate'];
       final userErrors = data?['customerUserErrors'] as List?;
       if (userErrors != null && userErrors.isNotEmpty) {
-        print("Shopify Error: ${userErrors.first['message']}");
+        print("Shopify Error: ${userErrors.first['code']}");
         return AddressDeletionResult(
           success: false,
-          errorMessage: _parseShopifyError(userErrors.first['message']),
+          errorMessage: _parseShopifyError(userErrors.first['code']),
         );
       }
 

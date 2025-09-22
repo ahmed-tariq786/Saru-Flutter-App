@@ -147,6 +147,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "failedToLogInPleaseTryAgain": MessageLookupByLibrary.simpleMessage(
       "Failed to log in. Please try again.",
     ),
+    "failedToSendResetPasswordEmailPleaseTryAgain":
+        MessageLookupByLibrary.simpleMessage(
+          "Failed to send reset password email. Please try again.",
+        ),
     "failedToUpdateCustomerInformationPleaseTryAgain":
         MessageLookupByLibrary.simpleMessage(
           "Failed to update customer information. Please try again.",
@@ -178,6 +182,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "loginRegister": MessageLookupByLibrary.simpleMessage("Login / Register"),
     "logout": MessageLookupByLibrary.simpleMessage("Logout"),
     "lostPassword": MessageLookupByLibrary.simpleMessage("Lost password? "),
+    "lostYourPasswordPleaseEnterYourEmailAddressYouWill":
+        MessageLookupByLibrary.simpleMessage(
+          "Lost your password? Please enter your email address. You will receive a link to create a new password via email.",
+        ),
     "lowToHigh": MessageLookupByLibrary.simpleMessage("Low to high"),
     "nameIsTooLongPleaseUseAShorterName": MessageLookupByLibrary.simpleMessage(
       "Name is too long. Please use a shorter name.",
@@ -240,6 +248,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "payment": MessageLookupByLibrary.simpleMessage("Payment"),
     "pending": MessageLookupByLibrary.simpleMessage("Pending"),
     "phoneNumber": MessageLookupByLibrary.simpleMessage("Phone Number"),
+    "pleaseCheckYourEmailForResetInstructions":
+        MessageLookupByLibrary.simpleMessage(
+          "Please check your email for reset instructions.",
+        ),
     "pleaseCreateAnAccountWithYourEmailAddress":
         MessageLookupByLibrary.simpleMessage(
           "Please create an account with your email address",
@@ -308,6 +320,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "relevance": MessageLookupByLibrary.simpleMessage("Relevance"),
     "remove": MessageLookupByLibrary.simpleMessage("Remove"),
     "reset": MessageLookupByLibrary.simpleMessage("Reset"),
+    "resetPassword": MessageLookupByLibrary.simpleMessage("Reset Password"),
     "restocked": MessageLookupByLibrary.simpleMessage("Restocked"),
     "save": MessageLookupByLibrary.simpleMessage("Save"),
     "scheduled": MessageLookupByLibrary.simpleMessage("Scheduled"),

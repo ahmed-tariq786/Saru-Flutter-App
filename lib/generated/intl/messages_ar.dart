@@ -149,6 +149,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "failedToLogInPleaseTryAgain": MessageLookupByLibrary.simpleMessage(
       "فشل في تسجيل الدخول. يرجى المحاولة مرة أخرى.",
     ),
+    "failedToSendResetPasswordEmailPleaseTryAgain":
+        MessageLookupByLibrary.simpleMessage(
+          "Failed to send reset password email. Please try again.",
+        ),
     "failedToUpdateCustomerInformationPleaseTryAgain":
         MessageLookupByLibrary.simpleMessage(
           "فشل في تحديث معلومات العميل. من فضلك حاول مرة أخرى.",
@@ -184,6 +188,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "lostPassword": MessageLookupByLibrary.simpleMessage(
       "كلمة المرور المفقودة؟",
     ),
+    "lostYourPasswordPleaseEnterYourEmailAddressYouWill":
+        MessageLookupByLibrary.simpleMessage(
+          "Lost your password? Please enter your email address. You will receive a link to create a new password via email.",
+        ),
     "lowToHigh": MessageLookupByLibrary.simpleMessage("من الأقل للأعلى"),
     "nameIsTooLongPleaseUseAShorterName": MessageLookupByLibrary.simpleMessage(
       "الاسم طويل جدًا. الرجاء استخدام اسم أقصر.",
@@ -242,6 +250,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "payment": MessageLookupByLibrary.simpleMessage("قسط"),
     "pending": MessageLookupByLibrary.simpleMessage("قيد الانتظار"),
     "phoneNumber": MessageLookupByLibrary.simpleMessage("رقم التليفون"),
+    "pleaseCheckYourEmailForResetInstructions":
+        MessageLookupByLibrary.simpleMessage(
+          "Please check your email for reset instructions.",
+        ),
     "pleaseCreateAnAccountWithYourEmailAddress":
         MessageLookupByLibrary.simpleMessage(
           "يرجى إنشاء حساب مع عنوان بريدك الإلكتروني",
@@ -312,6 +324,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "relevance": MessageLookupByLibrary.simpleMessage("الأهمية"),
     "remove": MessageLookupByLibrary.simpleMessage("يزيل"),
     "reset": MessageLookupByLibrary.simpleMessage("إعادة ضبط"),
+    "resetPassword": MessageLookupByLibrary.simpleMessage("Reset Password"),
     "restocked": MessageLookupByLibrary.simpleMessage("أعيد تخزينها"),
     "save": MessageLookupByLibrary.simpleMessage("يحفظ"),
     "scheduled": MessageLookupByLibrary.simpleMessage("من المقرر"),

@@ -3,6 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 import 'package:saru/generated/l10n.dart';
+import 'package:saru/screens/Account/Reset/reset_screen.dart';
 import 'package:saru/screens/Account/login/register_screen.dart';
 import 'package:saru/services/account_service.dart';
 import 'package:saru/services/cart_service.dart';
@@ -71,14 +72,6 @@ class _LoginRegisterScreenState extends State<LoginRegisterScreen> {
       return S.of(context).pleaseEnterYourPassword;
     }
 
-    if (value.length < 8) {
-      return S.of(context).passwordMustBeAtLeast8CharactersLong;
-    }
-
-    if (!RegExp(r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)').hasMatch(value)) {
-      return S.of(context).passwordMustContainAtLeastOneUppercaseLetterOneLowercase;
-    }
-
     return null;
   }
 
@@ -93,6 +86,7 @@ class _LoginRegisterScreenState extends State<LoginRegisterScreen> {
       isLoading.value = false;
 
       if (result.errorMessage != null) {
+        print(result.errorMessage);
         ShowToast().showErrorToast(result.errorMessage!);
       } else {
         if (cartController.cartId.value.isNotEmpty && accountController.customerAccessToken.value.isNotEmpty) {
@@ -449,12 +443,22 @@ class _LoginRegisterScreenState extends State<LoginRegisterScreen> {
                             AppColors.black,
                             TextAlign.center,
                           ),
-                          myText(
-                            S.of(context).recoverPassword,
-                            12,
-                            FontWeight.w700,
-                            AppColors.black,
-                            TextAlign.center,
+                          GestureDetector(
+                            onTap: () {
+                              PersistentNavBarNavigator.pushNewScreen(
+                                context,
+                                screen: ResetScreen(),
+                                withNavBar: false, // <--- keeps the bottom bar visible
+                                pageTransitionAnimation: PageTransitionAnimation.cupertino,
+                              );
+                            },
+                            child: myText(
+                              S.of(context).recoverPassword,
+                              12,
+                              FontWeight.w700,
+                              AppColors.black,
+                              TextAlign.center,
+                            ),
                           ),
                         ],
                       ),

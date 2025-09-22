@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:saru/generated/l10n.dart';
 import 'package:saru/graphql/mutation/account_mutation.dart';
+import 'package:saru/graphql/mutation/account_reset_mutation.dart';
 import 'package:saru/models/account.dart';
 import 'package:saru/services/language.dart';
 import 'package:saru/services/shopify_client.dart';
@@ -91,7 +92,7 @@ class AccountController extends GetxController {
 
       final userErrors = customerCreate['customerUserErrors'] as List?;
       if (userErrors != null && userErrors.isNotEmpty) {
-        final errorMessage = userErrors.first['message'] as String;
+        final errorMessage = userErrors.first['code'] as String;
         return CustomerCreationResult(
           success: false,
           errorMessage: _parseShopifyError(errorMessage),
@@ -199,7 +200,8 @@ class AccountController extends GetxController {
 
       final userErrors = customerAccessTokenCreate['customerUserErrors'] as List?;
       if (userErrors != null && userErrors.isNotEmpty) {
-        final errorMessage = userErrors.first['message'] as String;
+        final errorMessage = userErrors.first['code'] as String;
+
         return CustomerLoginResult(
           success: false,
           errorMessage: _parseShopifyError(errorMessage),
@@ -579,7 +581,7 @@ class AccountController extends GetxController {
 
       final userErrors = customerUpdate['customerUserErrors'] as List?;
       if (userErrors != null && userErrors.isNotEmpty) {
-        final errorMessage = userErrors.first['message'] as String;
+        final errorMessage = userErrors.first['code'] as String;
         print('Shopify User Error: ${_parseShopifyError(errorMessage)}');
         return CustomerUpdateResult(
           success: false,
@@ -608,6 +610,38 @@ class AccountController extends GetxController {
         success: false,
         errorMessage: S.current.failedToUpdateCustomerInformationPleaseTryAgain,
       );
+    }
+  }
+
+  Future<bool> recoverCustomer(String email) async {
+    try {
+      final result = await client.mutate(
+        MutationOptions(
+          document: gql(
+            customerRecoverMutation(),
+          ),
+          variables: {
+            "email": email.trim(),
+          },
+          fetchPolicy: FetchPolicy.networkOnly,
+        ),
+      );
+
+      if (result.hasException) {
+        print("GraphQL Exception: ${result.exception}");
+        return false;
+      }
+
+      final userErrors = result.data?['customerRecover']?['customerUserErrors'] as List?;
+      if (userErrors != null && userErrors.isNotEmpty) {
+        print("Recover Error: ${userErrors.first['code']}");
+        return false;
+      }
+
+      return true; // ✅ Success → Shopify sent the email
+    } catch (e) {
+      print("Error recovering customer: $e");
+      return false;
     }
   }
 }
